@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cápsulas Docentes CEA</title>
+<meta name="description" content="Cápsulas de formación docente del CEA - Universidad de San Buenaventura Cali: aula virtual Moodle e inteligencia artificial para la docencia.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%23EF6C00%27/%3E%3Cpath d=%27M12 9l12 7-12 7z%27 fill=%27white%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div class="nav"><div class="wrap"><div class="brand"><span>CEA</span> | Cápsulas Docentes<small>Centro de Innovación Pedagógica y Educación Digital</small></div><button id="theme">◐ Tema</button></div></div>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Formación docente · Aula virtual e IA</div>
+  <h1>Cápsulas de aprendizaje<br>para tu aula virtual</h1>
+  <p>Guías breves en video y paso a paso para diseñar, gestionar y enriquecer tus cursos en Moodle, y para incorporar la inteligencia artificial en tu práctica docente.</p>
+  <div class="stats"><div><b id="sTotal">16</b><span>cápsulas</span></div><div><b>4</b><span>rutas formativas</span></div><div><b id="sSeen">0</b><span>vistas por ti</span></div></div>
+</div></section>
+
+<div class="wrap">
+  <div class="routes" id="routes"></div>
+  <div class="dlall"><div><h3>Guía completa de las 16 cápsulas</h3><p>Un solo PDF con todas las guías paso a paso (67 páginas).</p></div><a class="btn pri" id="dlAll" href="pdf/Capsulas_CEA_Guia_Completa.pdf" download>⬇ Descargar guía completa</a></div>
+  <div class="filters">
+    <input id="q" type="search" placeholder="Buscar: rúbrica, foro, cuestionario…" aria-label="Buscar">
+    <select id="nivel" aria-label="Nivel"><option value="">Todos los niveles</option><option>Básico</option><option>Intermedio</option><option>Avanzado</option></select>
+    <select id="estado" aria-label="Estado"><option value="">Todas</option><option value="nv">No vistas</option><option value="v">Vistas</option><option value="vid">Con video publicado</option></select>
+    <button class="chip" id="reset">Limpiar filtros</button>
+  </div>
+  <p class="count" id="count"></p>
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="panel">
+  <div class="phead"><div class="k" id="mK"></div><h2 id="mT"></h2><button class="close" id="mClose" aria-label="Cerrar">×</button></div>
+  <div class="video" id="mV"></div>
+  <div class="pbody">
+    <div class="obj" id="mO"></div>
+    <h5>Paso a paso</h5><ol class="steps" id="mS"></ol>
+    <div class="actions"><a class="btn pri" id="mD" href="#" download>⬇ Descargar guía (PDF)</a><button class="btn sec" id="mSeen">✓ Marcar como vista</button></div>
+  </div>
+</div></div>
+
+<footer><div class="wrap"><b>CEA</b> · Centro de Innovación Pedagógica y Educación Digital — Universidad de San Buenaventura Cali</div></footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
