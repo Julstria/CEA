@@ -5,6 +5,9 @@ body{font-size:14.5px;line-height:1.55;background:#fff}
 .cap{break-before:page}
 .cap:first-child{break-before:auto}
 
+/* Bandas nocturnas en color plano: la retícula y el grano se rasterizan y pesan mucho en el PDF */
+.night{background-image:none!important}
+
 /* Portada de cada cápsula: banda nocturna */
 .pc-cover{border-radius:14px;padding:22px 26px 26px;border-bottom:5px solid var(--area)}
 .pc-cover h1{font-size:32px;letter-spacing:-.04em;margin-top:8px}
@@ -18,7 +21,7 @@ body{font-size:14.5px;line-height:1.55;background:#fff}
 .step{padding:10px 0;grid-template-columns:42px 1fr;gap:10px}
 .step-n{width:34px;height:34px;font-size:13px}
 .step-t{font-size:16px;margin:5px 0}
-.callout,.prompt,.gtable tr,.checklist li,.pc-help,.bi-route{break-inside:avoid}
+.callout,.prompt,.gtable tr,.checklist li,.bi-route{break-inside:avoid}
 .callout{padding:12px 16px}
 .c-obj p:not(.c-label){font-size:16.5px}
 .prompt pre{font-size:12.5px}
@@ -27,9 +30,6 @@ body{font-size:14.5px;line-height:1.55;background:#fff}
 .guide .tbl-wrap{overflow:visible}
 .checklist label{min-height:0;padding:6px 0}
 .checklist input{width:16px;height:16px}
-.pc-help{margin-top:26px;border-radius:14px;padding:18px 22px;display:grid;gap:4px}
-.pc-help b{font-family:var(--display);font-weight:500;font-size:20px;letter-spacing:-.02em}
-.pc-help>span{color:var(--on-night-muted)}
 .pc-logos{margin:-6px 0 10px;text-align:center}
 .pc-logos img{width:78%}
 

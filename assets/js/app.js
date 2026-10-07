@@ -211,6 +211,17 @@ document.addEventListener("keydown", e => {
 });
 
 // Enlaces directos: #fundamentos, #actividades, #gestion, #ia o #capsula-05
+// Menú compacto (hasta 999 px): se abre con el botón y se cierra con Escape, al elegir un enlace o al tocar fuera
+const menuBtn = $("menuBtn"), menu = $("menu");
+menuBtn.hidden = false;
+const setMenu = open => { menu.classList.toggle("open", open); menuBtn.setAttribute("aria-expanded", open); };
+menuBtn.onclick = () => setMenu(menuBtn.getAttribute("aria-expanded") !== "true");
+menu.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+document.addEventListener("click", e => { if (!e.target.closest(".top")) setMenu(false); });
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && menu.classList.contains("open")) { setMenu(false); menuBtn.focus(); }
+});
+
 // Lectura oscura: sin preferencia guardada sigue al sistema
 const themeBtn = $("theme");
 const isDark = () => document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;

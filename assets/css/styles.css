@@ -94,8 +94,10 @@ h1:hover .ac,h2:hover .ac{background:var(--text);color:var(--surface);text-decor
 /* Encabezado blanco con la franja oficial de logos (fondo blanco completo) */
 .top{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid #cad6d0}
 .top-in{max-width:1760px;margin:0 auto;padding:0 var(--gutter);height:84px;display:flex;align-items:center;gap:24px}
-.brand{display:block;margin-right:auto;min-width:0;line-height:0}
-.brand img{height:84px;width:auto;max-width:100%}
+.brand{display:block;flex:0 1 auto;margin-right:auto;min-width:0;line-height:0}
+.brand img{display:block;width:auto;height:84px;max-width:100%;object-fit:contain;object-position:left center}
+.menu-btn{display:none;align-items:center;gap:8px;min-height:48px;padding:6px 16px 6px 12px;border-radius:100px;border:1px solid #9fb3ad;background:transparent;color:#183a43;font-weight:600;cursor:pointer;flex:none}
+.menu-btn:hover{border-color:#183a43}
 .menu{display:flex;align-items:center;gap:4px}
 .menu a{color:#183a43;text-decoration:none;font-size:.95rem;font-weight:600;padding:10px 12px;border-radius:100px}
 .menu a:hover{color:#087f91;text-decoration:underline;text-underline-offset:4px}
@@ -199,11 +201,9 @@ h1:hover .ac,h2:hover .ac{background:var(--text);color:var(--surface);text-decor
 .institucional img{display:block;margin:0 auto;width:100%;max-width:760px}
 
 /* Pie nocturno con cierre de contacto */
-.foot{padding:clamp(3.5rem,6vw,5.5rem) 0 2rem}
+.foot{padding:2rem 0}
 .foot-in{display:grid;gap:2.5rem}
-.foot-help h2{font-size:clamp(2rem,3.5vw,3.2rem);letter-spacing:-.04em}
-.foot-help p{margin-top:1rem;color:var(--on-night-muted);max-width:52ch}
-.foot-legal{border-top:1px solid rgba(250,251,247,.14);padding-top:1.25rem;font-size:.9rem;color:var(--on-night-muted)}
+.foot-legal{font-size:.95rem;color:var(--on-night-muted)}
 
 /* Lector de guía */
 .reader{position:fixed;inset:0;z-index:50;background:rgba(13,34,39,.6);display:flex;justify-content:flex-end}
@@ -297,7 +297,16 @@ h1:hover .ac,h2:hover .ac{background:var(--text);color:var(--surface);text-decor
   .theme{padding:6px}
 }
 @media (max-width:999px){
-  .menu a{display:none}
+  /* Sin JavaScript los enlaces quedan visibles en una segunda fila */
+  .top-in{flex-wrap:wrap;height:auto;min-height:72px;padding-top:6px;padding-bottom:6px;gap:8px 16px}
+  .brand img{height:64px}
+  .js .top-in{flex-wrap:nowrap}
+  .js .menu-btn{display:inline-flex}
+  .js .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid #cad6d0;padding:.5rem var(--gutter) 1rem;box-shadow:0 12px 24px rgba(13,34,39,.12)}
+  .js .menu.open{display:flex}
+  .js .menu a{display:flex;align-items:center;min-height:52px;padding:0 4px;border-radius:0;border-bottom:1px solid #e3eae6;font-size:1.05rem}
+  .js .theme{margin:.75rem 0 0;align-self:flex-start;padding:6px 16px 6px 8px}
+  .js .theme span{position:static;width:auto;height:auto;overflow:visible;clip:auto}
   .hero-in{grid-template-columns:1fr;align-items:start}
   .hero h1{font-size:clamp(2.6rem,7.2vw,4.2rem)}
   .how{grid-template-columns:1fr}
@@ -307,8 +316,25 @@ h1:hover .ac,h2:hover .ac{background:var(--text);color:var(--surface);text-decor
 }
 @media (max-width:640px){
   body{font-size:1.05rem}
-  .top-in{height:64px}
-  .brand img{height:62px}
+  .brand img{height:auto;width:100%;max-height:60px}
+  .brand{flex:1 1 auto}
+  .menu-btn{padding:6px 12px}
+  .sec-t{font-size:clamp(2rem,9vw,2.6rem)}
+  .tools{padding:1.25rem 0}
+  .chip{padding:8px 14px;font-size:.95rem}
+  .count-row{flex-wrap:wrap;gap:.25rem 1rem}
+  .hero-cta{flex-direction:column;align-items:stretch;gap:.75rem}
+  .hero-cta .text-link{justify-content:center}
+  .btn{width:auto}
+  .dl-all .btn{width:100%}
+  .card-act .btn-pri{flex:1 1 auto}
+  .r-btns .btn{flex:1 1 auto}
+  .g-meta{grid-template-columns:1fr 1fr;gap:0 .75rem}
+  .g-meta span{font-size:.95rem}
+  .callout{padding:1rem;gap:.7rem}
+  .prompt figcaption{flex-wrap:wrap}
+  .gtable{font-size:.95rem}
+  .gtable th,.gtable td{padding:.6rem .6rem}
   .hero h1{font-size:clamp(2.3rem,10vw,3.4rem)}
   .routes{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
@@ -319,6 +345,11 @@ h1:hover .ac,h2:hover .ac{background:var(--text);color:var(--surface);text-decor
   .step{grid-template-columns:1fr;gap:.4rem}
   .r-nav{grid-template-columns:1fr}.r-nav-b.nx{grid-column:1}
   .dl-all{padding:1.5rem}
+}
+@media (max-width:380px){
+  .menu-btn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+  .menu-btn{padding:10px}
+  .g-meta{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.btn:hover{transform:none}}
 @media (forced-colors:active){.ac{background:none!important;color:CanvasText!important}.piece,.dots i{forced-color-adjust:none}}

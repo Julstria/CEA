@@ -7,7 +7,7 @@
 <meta name="description" content="Guías breves y paso a paso del CEA - Universidad de San Buenaventura Cali para usar el aula virtual Moodle y la inteligencia artificial en la docencia.">
 <meta name="theme-color" content="#0d2227">
 <link rel="icon" href="assets/img/cea-simbolo.png">
-<script>try{var t=localStorage.getItem("cea-theme");if(t)document.documentElement.dataset.theme=t.replace(/"/g,"")}catch(e){}</script>
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("cea-theme");if(t)document.documentElement.dataset.theme=t.replace(/"/g,"")}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Manrope:wght@400..700&family=Source+Sans+3:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
@@ -19,9 +19,12 @@
 <header class="top">
   <div class="top-in">
     <a class="brand" href="#inicio" aria-label="Cápsulas Docentes del CEA, Universidad de San Buenaventura Cali. Ir al inicio">
-      <img src="assets/img/logos-institucionales.png" alt="" width="1228" height="219">
+      <img src="assets/img/logos-institucionales.jpg" alt="" width="1228" height="219">
     </a>
-    <nav class="menu" aria-label="Secciones">
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" hidden>
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menú</span>
+    </button>
+    <nav class="menu" id="menu" aria-label="Secciones">
       <a href="#como">Cómo funciona</a>
       <a href="#rutas">Rutas</a>
       <a href="#capsulas">Cápsulas</a>
@@ -109,16 +112,12 @@
   </section>
 
   <section class="institucional" aria-label="Respaldo institucional">
-    <div class="wrap"><img src="assets/img/logos-institucionales.png" alt="Universidad de San Buenaventura · Acreditación Institucional Multicampus de Alta Calidad · CEA, Centro de Innovación Pedagógica y Educación Digital" width="1228" height="219" loading="lazy"></div>
+    <div class="wrap"><img src="assets/img/logos-institucionales.jpg" alt="Universidad de San Buenaventura · Acreditación Institucional Multicampus de Alta Calidad · CEA, Centro de Innovación Pedagógica y Educación Digital" width="1228" height="219" loading="lazy"></div>
   </section>
 </main>
 
 <footer class="foot night">
   <div class="wrap foot-in">
-    <div class="foot-help">
-      <h2>¿Necesitas <span class="ac">acompañamiento?</span></h2>
-      <p>El equipo del CEA te ayuda a implementar cualquiera de estas cápsulas en tu curso.</p>
-    </div>
     <p class="foot-legal">CEA · Centro de Innovación Pedagógica y Educación Digital — Universidad de San Buenaventura Cali</p>
   </div>
 </footer>

@@ -12,7 +12,7 @@ const T = require("./theme");
 const ROOT = path.join(__dirname, "..");
 const outDir = path.join(ROOT, "word");
 const guides = require("./data").CAPS;
-const LOGOS = fs.readFileSync(path.join(ROOT, "assets", "img", "logos-institucionales.png")); // 1228 x 219 px
+const LOGOS = fs.readFileSync(path.join(ROOT, "assets", "img", "logos-institucionales.jpg")); // 1228 x 219 px
 
 const FONT = "Calibri";
 const W = 10080; // ancho útil: carta con márgenes de 0,75"
@@ -46,7 +46,7 @@ function cover(g, R) {
   const metaCells = [["Ruta", g.ruta], ["Nivel", g.nivel], ["Tiempo de lectura", g.duracion], ["Plataforma", g.plataforma]];
   const cw = W / 4;
   return [
-    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 200 }, children: [new ImageRun({ type: "png", data: LOGOS, transformation: { width: 540, height: 96 }, altText: { title: "Logos institucionales", description: "Universidad de San Buenaventura, Acreditación Institucional Multicampus de Alta Calidad y CEA", name: "logos" } })] }),
+    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 200 }, children: [new ImageRun({ type: "jpg", data: LOGOS, transformation: { width: 540, height: 96 }, altText: { title: "Logos institucionales", description: "Universidad de San Buenaventura, Acreditación Institucional Multicampus de Alta Calidad y CEA", name: "logos" } })] }),
     box(kids, { fill: T.night, margins: { top: 360, bottom: 360, left: 360, right: 360 } }),
     new Paragraph({ spacing: { after: 0 }, border: { top: { style: BorderStyle.SINGLE, size: 36, color: R.f, space: 0 } }, children: [] }),
     new Table({
@@ -142,12 +142,10 @@ function body(g) {
       else if (b.type === "check") b.items.forEach(t => out.push(check(t)));
     }
   }
-  out.push(gap(240));
-  out.push(box([
-    new Paragraph({ spacing: { after: 60 }, children: [run("¿Necesitas acompañamiento?", { bold: true, size: 24, color: "FFAD79" })] }),
-    new Paragraph({ spacing: { after: 60 }, children: [run("El equipo del CEA te ayuda a implementar esta cápsula en tu curso.", { size: 21, color: "FFFFFF" })] }),
-    new Paragraph({ children: [run("CEA · Centro de Innovación Pedagógica y Educación Digital — Universidad de San Buenaventura Cali", { size: 18, color: "B4C4C6" })] })
-  ], { fill: T.night, bar: T.brand, margins: { top: 240, bottom: 240, left: 300, right: 300 } }));
+  out.push(new Paragraph({
+    spacing: { before: 360 }, border: { top: { style: BorderStyle.SINGLE, size: 4, color: T.line, space: 8 } },
+    children: [run("CEA · Centro de Innovación Pedagógica y Educación Digital — Universidad de San Buenaventura Cali", { size: 18, color: T.muted })]
+  }));
   return out;
 }
 

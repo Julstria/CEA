@@ -16,19 +16,18 @@
 const qs = new URLSearchParams(location.search);
 const one = c => `
   <section class="cap r-${rutaKey(c.ruta)}">
-    <div class="pc-logos"><img src="../assets/img/logos-institucionales.png" alt=""></div>
+    <div class="pc-logos"><img src="../assets/img/logos-institucionales.jpg" alt=""></div>
     <header class="pc-cover night">
       <p class="label">Cápsula ${c.n} · Ruta ${rutaIdx(c.ruta) + 1}: ${esc(c.ruta)}</p>
       <h1>${esc(c.title)}</h1>${c.sub ? `<p class="pc-sub">${esc(c.sub)}</p>` : ""}
     </header>
     ${guideMeta(c)}
     <article class="guide">${renderGuide(c, { print: true })}</article>
-    <aside class="pc-help night"><b>¿Necesitas <span class="ac">acompañamiento?</span></b><span>El equipo del CEA te ayuda a implementar esta cápsula en tu curso.</span></aside>
   </section>`;
 let html = "";
 if (qs.has("all")) {
   html += `<section class="book-cover night">
-    <div class="bc-logos"><img src="../assets/img/logos-institucionales.png" alt=""></div>
+    <div class="bc-logos"><img src="../assets/img/logos-institucionales.jpg" alt=""></div>
     <p class="label bc-k">CEA · Centro de Innovación Pedagógica y Educación Digital</p>
     <h1>Cápsulas docentes, <span class="ac">guía completa</span></h1>
     <p class="bc-sub">16 guías paso a paso para el aula virtual Moodle y la inteligencia artificial en la docencia.</p>
