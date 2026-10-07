@@ -98,8 +98,7 @@ function renderGrid() {
       <ul class="card-meta"><li>${esc(c.nivel)}</li><li>${esc(c.duracion)}</li><li>${c.pasos.length} pasos</li></ul>
       <div class="card-act">
         <button type="button" class="btn btn-pri btn-sm" data-open="${c.n}">Abrir guía</button>
-        <a class="btn btn-line btn-sm" href="${docPath(c, "pdf")}" download aria-label="Descargar PDF de la cápsula ${c.n}">${DL}PDF</a>
-        <a class="btn btn-line btn-sm" href="${docPath(c, "docx")}" download aria-label="Descargar Word de la cápsula ${c.n}">${DL}Word</a>
+        <a class="btn btn-line btn-sm" href="${docPath(c)}" download aria-label="Descargar PDF de la cápsula ${c.n}">${DL}Descargar PDF</a>
       </div>
     </article>`).join("") : `<div class="empty"><p>No hay cápsulas con esos filtros.</p><button class="btn btn-soft" type="button" data-reset>Quitar filtros</button></div>`;
 }
@@ -107,8 +106,7 @@ function renderDownloads() {
   $("dlRows").innerHTML = CAPS.map(c => `<tr class="r-${rutaKey(c.ruta)}">
     <th scope="row"><span class="dl-n">${c.n}</span>${esc(c.title)}</th>
     <td><span class="dot"></span>${esc(c.ruta)}</td>
-    <td><a href="${docPath(c, "pdf")}" download aria-label="PDF de la cápsula ${c.n}">${DL}PDF</a></td>
-    <td><a href="${docPath(c, "docx")}" download aria-label="Word de la cápsula ${c.n}">${DL}Word</a></td></tr>`).join("");
+    <td><a href="${docPath(c)}" download aria-label="PDF de la cápsula ${c.n}">${DL}PDF</a></td></tr>`).join("");
 }
 function render() { renderProgress(); renderRoutes(); renderFilters(); renderGrid(); }
 
@@ -147,8 +145,7 @@ function openCap(n, push = true) {
 function actionsHtml(c) {
   return `<div class="r-btns">
     <button type="button" class="btn ${seen[c.n] ? "btn-done" : "btn-pri"}" data-seen="${c.n}" aria-pressed="${!!seen[c.n]}">${CHECK}${seen[c.n] ? "Vista" : "Marcar como vista"}</button>
-    <a class="btn btn-line" href="${docPath(c, "pdf")}" download>${DL}PDF</a>
-    <a class="btn btn-line" href="${docPath(c, "docx")}" download>${DL}Word</a></div>`;
+    <a class="btn btn-line" href="${docPath(c)}" download>${DL}Descargar PDF</a></div>`;
 }
 function closeReader() {
   if ($("reader").hidden) return;

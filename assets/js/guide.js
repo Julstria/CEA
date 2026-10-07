@@ -12,7 +12,7 @@ const rutaIdx = r => RUTAS.findIndex(x => x.k === r);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const runs = rs => rs.map(r => r.b ? `<strong>${esc(r.t)}</strong>` : esc(r.t)).join("");
 const secId = (n, h) => `c${n}-` + h.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-const docPath = (c, ext) => `${ext === "pdf" ? "pdf" : "word"}/${c.file}.${ext}`;
+const docPath = c => `pdf/${c.file}.pdf`;
 
 // Iconos (trazos de Lucide, licencia ISC)
 const ICON = {

@@ -6,7 +6,7 @@ Cada cápsula tiene:
 
 - su guía completa para leer en la página (objetivo, paso a paso, tips, errores frecuentes, reto y lista para verificar el avance),
 - un espacio para el video (YouTube o Vimeo),
-- su guía descargable en PDF y en Word (editable).
+- su guía descargable en PDF.
 
 La página permite filtrar por ruta formativa, nivel, tema y estado (pendientes, vistas, con video), copiar los prompts de las cápsulas de IA con un clic y marcar las cápsulas vistas. El avance se guarda en el navegador de cada docente.
 
@@ -22,7 +22,7 @@ capsulas-cea/
 │       ├── guide.js      Dibuja una guía (lo usan la página y los PDF)
 │       └── app.js        Filtros, lector de guías, avance y descargas
 ├── pdf/                  Guías en PDF (16 + guía completa)
-├── word/                 Guías editables en Word (.docx)
+├── word/                 Guías en Word (.docx), solo para uso interno del CEA; la página no las enlaza
 ├── tools/                Scripts que generan los Word y los PDF desde data.js
 ├── .nojekyll             Necesario para GitHub Pages
 └── README.md
