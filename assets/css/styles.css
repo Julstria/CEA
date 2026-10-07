@@ -91,19 +91,19 @@ h1:hover .ac,h2:hover .ac{background:var(--text);color:var(--surface);text-decor
 .text-link:hover .arw,.btn:hover .arw{transform:translateX(4px)}
 .night .text-link{color:var(--on-night)}
 
-/* Encabezado nocturno */
-.top{position:sticky;top:0;z-index:30;border-bottom:1px solid rgba(250,251,247,.14)}
-.top-in{max-width:1760px;margin:0 auto;padding:0 var(--gutter);height:76px;display:flex;align-items:center;gap:24px}
-.brand{--brand-h:46px;display:flex;align-items:center;gap:calc(var(--brand-h)/2);margin-right:auto;text-decoration:none;min-width:0}
-.brand img{height:var(--brand-h);width:auto}
-.brand-sep{width:1px;height:var(--brand-h);background:rgba(250,251,247,.35)}
+/* Encabezado blanco con la franja oficial de logos (fondo blanco completo) */
+.top{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid #cad6d0}
+.top-in{max-width:1760px;margin:0 auto;padding:0 var(--gutter);height:84px;display:flex;align-items:center;gap:24px}
+.brand{display:block;margin-right:auto;min-width:0;line-height:0}
+.brand img{height:84px;width:auto;max-width:100%}
 .menu{display:flex;align-items:center;gap:4px}
-.menu a{color:var(--on-night);text-decoration:none;font-size:.95rem;font-weight:600;padding:10px 12px;border-radius:100px}
-.menu a:hover{color:#6dcbd6}
-.theme{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-left:8px;padding:6px 14px 6px 8px;border-radius:50px;border:1px solid rgba(250,251,247,.3);background:transparent;color:var(--on-night);font-size:.95rem;font-weight:600;cursor:pointer}
+.menu a{color:#183a43;text-decoration:none;font-size:.95rem;font-weight:600;padding:10px 12px;border-radius:100px}
+.menu a:hover{color:#087f91;text-decoration:underline;text-underline-offset:4px}
+.theme{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-left:8px;padding:6px 14px 6px 8px;border-radius:50px;border:1px solid #9fb3ad;background:transparent;color:#183a43;font-size:.95rem;font-weight:600;cursor:pointer}
 .theme svg{width:26px;height:26px;transition:transform .3s var(--ease)}
 .theme[aria-pressed="true"] svg{transform:rotate(180deg)}
-.theme:hover{border-color:var(--on-night)}
+.theme:hover{border-color:#183a43}
+.top :focus-visible{outline-color:#087f91}
 
 /* Apertura */
 .hero{padding:clamp(3.5rem,8vw,7rem) 0 clamp(3.5rem,7vw,6rem)}
@@ -200,12 +200,10 @@ h1:hover .ac,h2:hover .ac{background:var(--text);color:var(--surface);text-decor
 
 /* Pie nocturno con cierre de contacto */
 .foot{padding:clamp(3.5rem,6vw,5.5rem) 0 2rem}
-.foot-in{display:grid;grid-template-columns:1fr auto;gap:2.5rem 3rem;align-items:end}
+.foot-in{display:grid;gap:2.5rem}
 .foot-help h2{font-size:clamp(2rem,3.5vw,3.2rem);letter-spacing:-.04em}
 .foot-help p{margin-top:1rem;color:var(--on-night-muted);max-width:52ch}
-.foot-brand{--brand-h:40px;display:flex;align-items:center;gap:calc(var(--brand-h)/2)}
-.foot-brand img{height:var(--brand-h);width:auto}
-.foot-legal{grid-column:1/-1;border-top:1px solid rgba(250,251,247,.14);padding-top:1.25rem;font-size:.9rem;color:var(--on-night-muted)}
+.foot-legal{border-top:1px solid rgba(250,251,247,.14);padding-top:1.25rem;font-size:.9rem;color:var(--on-night-muted)}
 
 /* Lector de guía */
 .reader{position:fixed;inset:0;z-index:50;background:rgba(13,34,39,.6);display:flex;justify-content:flex-end}
@@ -310,7 +308,7 @@ h1:hover .ac,h2:hover .ac{background:var(--text);color:var(--surface);text-decor
 @media (max-width:640px){
   body{font-size:1.05rem}
   .top-in{height:64px}
-  .brand{--brand-h:30px}
+  .brand img{height:62px}
   .hero h1{font-size:clamp(2.3rem,10vw,3.4rem)}
   .routes{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
@@ -321,8 +319,6 @@ h1:hover .ac,h2:hover .ac{background:var(--text);color:var(--surface);text-decor
   .step{grid-template-columns:1fr;gap:.4rem}
   .r-nav{grid-template-columns:1fr}.r-nav-b.nx{grid-column:1}
   .dl-all{padding:1.5rem}
-  .foot-brand{--brand-h:32px}
 }
-@media (max-width:360px){.brand .brand-sep,.brand img:first-child{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.btn:hover{transform:none}}
 @media (forced-colors:active){.ac{background:none!important;color:CanvasText!important}.piece,.dots i{forced-color-adjust:none}}

@@ -17,7 +17,7 @@ capsulas-cea/
 ├── index.html            Página principal
 ├── assets/
 │   ├── css/styles.css    Estilos según el sistema de diseño del sitio del CEA (DESIGN.md)
-│   ├── img/              Logos (versiones noche provisionales hasta recibir el kit oficial)
+│   ├── img/              Logos institucionales (franja oficial con fondo blanco)
 │   └── js/
 │       ├── data.js       Contenido de las cápsulas y enlaces de los videos  ← aquí se edita
 │       ├── guide.js      Dibuja una guía (lo usan la página y los PDF)
