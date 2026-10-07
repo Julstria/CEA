@@ -4,11 +4,11 @@ Catálogo web de las 16 cápsulas de formación docente del **CEA – Centro de 
 
 Cada cápsula tiene:
 
-- su ficha con objetivo y paso a paso,
+- su guía completa para leer en la página (objetivo, paso a paso, tips, errores frecuentes, reto y lista para verificar el avance),
 - un espacio para el video (YouTube o Vimeo),
-- su guía descargable en PDF (y la versión editable en Word).
+- su guía descargable en PDF y en Word (editable).
 
-La página permite filtrar por ruta formativa, nivel, palabra clave y estado (vistas, no vistas, con video).
+La página permite filtrar por ruta formativa, nivel, tema y estado (pendientes, vistas, con video), copiar los prompts de las cápsulas de IA con un clic y marcar las cápsulas vistas. El avance se guarda en el navegador de cada docente.
 
 ## Estructura del repositorio
 
@@ -16,12 +16,14 @@ La página permite filtrar por ruta formativa, nivel, palabra clave y estado (vi
 capsulas-cea/
 ├── index.html            Página principal
 ├── assets/
-│   ├── css/styles.css    Estilos (colores y tipografía del CEA)
+│   ├── css/styles.css    Estilos (colores por ruta, tipografía Lexend + Source Sans 3)
 │   └── js/
-│       ├── data.js       Datos de las cápsulas y enlaces de los videos  ← aquí se edita
-│       └── app.js        Lógica de filtros, fichas y descargas
+│       ├── data.js       Contenido de las cápsulas y enlaces de los videos  ← aquí se edita
+│       ├── guide.js      Dibuja una guía (lo usan la página y los PDF)
+│       └── app.js        Filtros, lector de guías, avance y descargas
 ├── pdf/                  Guías en PDF (16 + guía completa)
 ├── word/                 Guías editables en Word (.docx)
+├── tools/                Scripts que generan los Word y los PDF desde data.js
 ├── .nojekyll             Necesario para GitHub Pages
 └── README.md
 ```
@@ -40,15 +42,25 @@ capsulas-cea/
    };
    ```
 
-3. Guarda y sube el cambio. La tarjeta pasará a mostrar **Video disponible** y el video se reproducirá dentro de la ficha.
+3. Guarda y sube el cambio. La tarjeta mostrará la etiqueta **Video** y el video se reproducirá dentro de la guía.
 
-Se aceptan enlaces de YouTube (watch, youtu.be, shorts) y Vimeo. Cualquier otro enlace se muestra como botón **Ver video**.
+Se aceptan enlaces de YouTube (watch, youtu.be, shorts) y Vimeo. Cualquier otro enlace se muestra como botón **Ver el video de la cápsula**.
 
 ## Cómo actualizar una guía
 
-1. Edita el Word en la carpeta `word/`.
-2. Exporta a PDF con el **mismo nombre de archivo** y reemplázalo en `pdf/`.
-3. Si cambias el contenido de una cápsula (objetivo o pasos), actualiza también su bloque en `assets/js/data.js`.
+El contenido de las guías vive en un solo lugar: `assets/js/data.js`. La página, los Word y los PDF se generan a partir de él, así que siempre coinciden.
+
+1. Edita el bloque de la cápsula en `assets/js/data.js` (objetivo, pasos, tips, tablas, etc.).
+2. Regenera los documentos (requiere [Node.js](https://nodejs.org) y Google Chrome o Microsoft Edge):
+
+   ```bash
+   cd tools
+   npm install      # solo la primera vez
+   npm run build    # crea word/*.docx y pdf/*.pdf (incluida la guía completa)
+   ```
+
+   También puedes generar solo una parte con `npm run word` o `npm run pdf`.
+3. Sube los cambios al repositorio.
 
 ## Publicar en GitHub Pages
 
@@ -83,6 +95,7 @@ y abrir `http://localhost:8000`.
 - `index.html#actividades` – Actividades y evaluación
 - `index.html#gestion` – Gestión y seguimiento
 - `index.html#ia` – IA para la docencia
+- `index.html#capsula-05` – abre directamente la guía de la cápsula 05 (sirve para cualquier número)
 
 ---
 

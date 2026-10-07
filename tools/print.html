@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Cápsulas Docentes CEA – versión para PDF</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="print.css">
+</head>
+<body>
+<main id="doc"></main>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/guide.js"></script>
+<script>
+// ?n=05 dibuja una cápsula; ?all dibuja la guía completa
+const qs = new URLSearchParams(location.search);
+const one = c => `
+  <section class="cap r-${rutaKey(c.ruta)}">
+    <header class="pc-cover">
+      <p class="pc-k">Cápsula ${c.n} · Ruta ${rutaIdx(c.ruta) + 1}: ${esc(c.ruta)}</p>
+      <h1>${esc(c.title)}</h1>${c.sub ? `<p class="pc-sub">${esc(c.sub)}</p>` : ""}
+    </header>
+    ${guideMeta(c)}
+    <article class="guide">${renderGuide(c, { print: true })}</article>
+    <aside class="pc-help"><b>¿Necesitas acompañamiento?</b><span>El equipo del CEA te ayuda a implementar esta cápsula en tu curso.</span></aside>
+  </section>`;
+let html = "";
+if (qs.has("all")) {
+  html += `<section class="book-cover">
+    <p class="bc-k">CEA · Centro de Innovación Pedagógica y Educación Digital</p>
+    <h1>Cápsulas Docentes</h1>
+    <p class="bc-sub">Guía completa: aula virtual Moodle e inteligencia artificial para la docencia</p>
+    <p class="bc-u">Universidad de San Buenaventura Cali</p></section>
+    <section class="book-index"><h2>Contenido</h2>${RUTAS.map((r, i) => `
+      <div class="bi-route r-${r.key}"><h3>Ruta ${i + 1} · ${esc(r.k)}</h3><p>${esc(r.d)}</p>
+      <ol>${CAPS.filter(c => c.ruta === r.k).map(c => `<li><span>${c.n}</span>${esc(c.title)}<em>${esc(c.nivel)} · ${esc(c.duracion)}</em></li>`).join("")}</ol></div>`).join("")}
+    </section>`;
+  html += CAPS.map(one).join("");
+} else {
+  html += one(CAPS.find(c => c.n === qs.get("n")));
+}
+document.getElementById("doc").innerHTML = html;
+// Mantiene cada título junto a su primer bloque para que no quede solo al final de una página
+document.querySelectorAll(".g-h1, .g-h3, .step-t").forEach(h => {
+  let next = h.nextElementSibling; if (!next) return;
+  if (next.matches("ol.steps")) { // separa el primer paso en su propia lista
+    const rest = next.cloneNode(false); while (next.children.length > 1) rest.appendChild(next.children[1]);
+    next.after(rest);
+  }
+  if (next.matches("ul") && next.children.length > 2) { // solo los dos primeros ítems
+    const rest = next.cloneNode(false); while (next.children.length > 2) rest.appendChild(next.children[2]);
+    rest.classList.add("cont"); next.after(rest);
+  }
+  const keep = document.createElement("div"); keep.className = "keep";
+  h.before(keep); keep.append(h, next);
+});
+</script>
+</body>
+</html>

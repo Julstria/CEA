@@ -1,0 +1,14 @@
+{
+  "name": "capsulas-cea-tools",
+  "private": true,
+  "description": "Genera las guías Word y PDF a partir de assets/js/data.js",
+  "scripts": {
+    "word": "node build-docx.js",
+    "pdf": "node build-pdf.js",
+    "build": "node build-docx.js && node build-pdf.js"
+  },
+  "dependencies": {
+    "docx": "^9.9.0",
+    "puppeteer-core": "^25.12.0"
+  }
+}
