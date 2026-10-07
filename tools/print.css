@@ -4,54 +4,56 @@ html{font-size:14px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{font-size:14.5px;line-height:1.55;background:#fff}
 .cap{break-before:page}
 .cap:first-child{break-before:auto}
-.pc-logos{margin:-4px 0 14px;text-align:center}
-.pc-logos img{width:78%}
-.pc-cover{background:var(--rf);color:var(--ron);padding:24px 28px;border-bottom:5px solid var(--naranja)}
-.r-ia .pc-cover{border-bottom-color:var(--negro)}
-.pc-k{font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase}
-.pc-cover h1{color:inherit;font-size:30px;font-weight:800;margin-top:6px}
-.pc-sub{font-size:16px;margin-top:6px}
-.g-meta{margin-top:12px}
-.g-meta li{padding:10px}
+
+/* Portada de cada cápsula: banda nocturna */
+.pc-cover{border-radius:14px;padding:22px 26px 26px;border-bottom:5px solid var(--area)}
+.pc-brand{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.pc-brand img{height:34px;width:auto}
+.pc-brand span{width:1px;height:28px;background:rgba(250,251,247,.35)}
+.pc-cover h1{font-size:32px;letter-spacing:-.04em;margin-top:8px}
+.pc-sub{font-size:16px;margin-top:6px;color:var(--on-night-muted)}
+.g-meta{margin-top:10px}
+.g-meta li{padding:8px 0}
 .g-meta span{font-size:13.5px}
-.g-sec{margin-top:24px}
-.g-h1{font-size:20px;break-after:avoid}
-.g-h3{font-size:16px;break-after:avoid}
-.step{padding:12px 0;grid-template-columns:44px 1fr;gap:12px}
-.step-n{width:36px;height:36px;font-size:15px;border-radius:9px}
-.step-t{font-size:16px;margin:6px 0;break-after:avoid}
+.g-sec{margin-top:22px}
+.g-h1{font-size:21px}
+.g-h3{font-size:15.5px}
+.step{padding:10px 0;grid-template-columns:42px 1fr;gap:10px}
+.step-n{width:34px;height:34px;font-size:13px}
+.step-t{font-size:16px;margin:5px 0}
 .callout,.prompt,.gtable tr,.checklist li,.pc-help,.bi-route{break-inside:avoid}
 .callout{padding:12px 16px}
-.c-obj p:not(.c-label){font-size:15.5px}
+.c-obj p:not(.c-label){font-size:16.5px}
 .prompt pre{font-size:12.5px}
 .gtable{font-size:13.5px}
-.gtable th,.gtable td{padding:7px 12px}
+.gtable th,.gtable td{padding:7px 10px}
 .guide .tbl-wrap{overflow:visible}
-.checklist label{min-height:0;padding:7px 12px}
+.checklist label{min-height:0;padding:6px 0}
 .checklist input{width:16px;height:16px}
-.pc-help{margin-top:28px;background:var(--negro);color:#DADAD6;border-left:8px solid var(--naranja);padding:18px 22px;display:grid;gap:4px}
-.pc-help b{color:var(--naranja);font-family:var(--head);font-size:16px}
+.pc-help{margin-top:26px;border-radius:14px;padding:18px 22px;display:grid;gap:4px}
+.pc-help b{font-family:var(--display);font-weight:500;font-size:20px;letter-spacing:-.02em}
+.pc-help>span{color:var(--on-night-muted)}
+.pc-logos{margin-top:18px;text-align:center}
+.pc-logos img{width:72%}
 
 /* Guía completa */
-.book-cover{height:240mm;display:flex;flex-direction:column;background:var(--negro);color:#fff;padding:0 0 14mm;border-bottom:12px solid var(--naranja);position:relative;overflow:hidden}
-.book-cover::before{content:"";position:absolute;right:-40mm;top:40mm;width:120mm;height:120mm;background:var(--naranja);opacity:.14;transform:rotate(12deg)}
-.bc-logos{background:#fff;padding:8mm 10mm;width:100%}
-.bc-k{margin:auto 12mm 0;display:flex;gap:10px;align-items:center;font-family:var(--head);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:14px}
-.bc-k span{background:var(--naranja);color:var(--negro);padding:4px 10px}
-.book-cover h1{color:var(--naranja);font-size:60px;font-weight:800;margin:14px 12mm 0;text-transform:uppercase;line-height:1.05}
-.book-cover h1 .lt{color:#fff;display:block}
-.bc-sub{font-size:20px;margin:16px 12mm 0;max-width:520px;color:#DADAD6}
-.bc-u{margin:auto 12mm 0;font-weight:700;color:#BDBDB8}
+.book-cover{height:240mm;border-radius:14px;display:flex;flex-direction:column;padding:14mm 12mm;position:relative;overflow:hidden}
+.book-cover .pc-brand img{height:44px}
+.book-cover .pc-brand span{height:36px}
+.bc-k{margin-top:auto}
+.book-cover h1{font-size:60px;line-height:1.05;letter-spacing:-.04em;margin-top:14px}
+.bc-sub{font-size:19px;margin-top:16px;max-width:520px;color:var(--on-night-muted)}
+.bc-u{margin-top:auto;font-weight:600;color:var(--on-night-muted)}
+.book-cover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:linear-gradient(90deg,var(--area-formacion) 0 25%,var(--area-curricular) 0 50%,var(--area-digital) 0 75%,var(--area-inteligencia) 0)}
 .book-index{break-before:page}
-.book-index h2{font-size:28px;font-weight:800;text-transform:uppercase;margin-bottom:14px}
-.book-index h2::before{content:"";display:block;width:56px;height:7px;background:var(--naranja);margin-bottom:12px}
-.bi-route{border-left:6px solid var(--rf);padding:6px 0 6px 16px;margin:16px 0}
-.bi-route h3{font-size:16px;color:var(--r);font-weight:800;text-transform:uppercase}
-.bi-route p{color:var(--muted);font-size:13.5px}
-.bi-route ol{list-style:none;padding:0;margin:8px 0 0}
-.bi-route li{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--line);font-weight:600;color:var(--ink)}
-.bi-route li span{color:var(--r);font-family:var(--num);width:26px}
-.bi-route li em{margin-left:auto;font-style:normal;font-weight:400;color:var(--muted);font-size:13px}
+.book-index h2{font-size:32px;letter-spacing:-.04em;margin-bottom:12px}
+.bi-route{border-top:2px solid var(--area);padding:10px 0 4px;margin:14px 0}
+.bi-route h3{font-size:17px;display:flex;align-items:center;gap:8px}
+.bi-route p{color:var(--text-muted);font-size:13.5px}
+.bi-route ol{list-style:none;padding:0;margin:6px 0 0}
+.bi-route li{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--border);font-weight:600}
+.bi-route li span{color:var(--text-muted);font-family:var(--accent);width:26px}
+.bi-route li em{margin-left:auto;font-style:normal;font-weight:400;color:var(--text-muted);font-size:13px}
 
 /* Títulos agrupados con su primer bloque (ver print.html) */
 .keep{break-inside:avoid}

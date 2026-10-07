@@ -16,8 +16,8 @@ La página permite filtrar por ruta formativa, nivel, tema y estado (pendientes,
 capsulas-cea/
 ├── index.html            Página principal
 ├── assets/
-│   ├── css/styles.css    Estilos según el manual de marca USB (negro, naranja #EF7D00) con acentos del logo del CEA
-│   ├── img/              Logos institucionales (USB, Acreditación y CEA)
+│   ├── css/styles.css    Estilos según el sistema de diseño del sitio del CEA (DESIGN.md)
+│   ├── img/              Logos (versiones noche provisionales hasta recibir el kit oficial)
 │   └── js/
 │       ├── data.js       Contenido de las cápsulas y enlaces de los videos  ← aquí se edita
 │       ├── guide.js      Dibuja una guía (lo usan la página y los PDF)

@@ -3,50 +3,56 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cápsulas Docentes CEA</title>
+<title>Cápsulas Docentes · CEA USB Cali</title>
 <meta name="description" content="Guías breves y paso a paso del CEA - Universidad de San Buenaventura Cali para usar el aula virtual Moodle y la inteligencia artificial en la docencia.">
-<meta name="theme-color" content="#1D1D1B">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23EF7D00%27/%3E%3Cpath d=%27M12 9l12 7-12 7z%27 fill=%27%231D1D1B%27/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0d2227">
+<link rel="icon" href="assets/img/cea-simbolo.png">
+<script>try{var t=localStorage.getItem("cea-theme");if(t)document.documentElement.dataset.theme=t.replace(/"/g,"")}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Graduate&family=Montserrat:wght@300;400;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Manrope:wght@400..700&family=Source+Sans+3:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 <a class="skip" href="#capsulas">Saltar al catálogo de cápsulas</a>
 
-<header class="top">
-  <div class="wrap top-in">
+<header class="top night">
+  <div class="top-in">
     <a class="brand" href="#inicio" aria-label="Cápsulas Docentes del CEA, Universidad de San Buenaventura Cali. Ir al inicio">
-      <img class="brand-usb" src="assets/img/logo-usb.png" alt="Universidad de San Buenaventura" width="362" height="116">
+      <img src="assets/img/logo-usb-noche.png" alt="" width="362" height="116">
       <span class="brand-sep" aria-hidden="true"></span>
-      <img class="brand-cea" src="assets/img/logo-cea.png" alt="CEA, Centro de Innovación Pedagógica y Educación Digital" width="418" height="91">
+      <img src="assets/img/cea-simbolo.png" alt="" width="192" height="91">
     </a>
     <nav class="menu" aria-label="Secciones">
       <a href="#como">Cómo funciona</a>
       <a href="#rutas">Rutas</a>
       <a href="#capsulas">Cápsulas</a>
       <a href="#descargas">Descargas</a>
+      <button class="theme" id="theme" type="button" aria-pressed="false" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        <span>Lectura oscura</span>
+      </button>
     </nav>
   </div>
 </header>
 
 <main id="inicio">
-  <section class="hero">
+  <section class="hero night" aria-labelledby="heroT">
     <div class="wrap hero-in">
       <div class="hero-copy">
-        <p class="eyebrow"><span>Cápsulas docentes</span> USB Cali</p>
-        <h1><span class="lt">Aprende a usar tu aula virtual y la IA,</span> paso a paso</h1>
+        <p class="label">CEA · Centro de Innovación Pedagógica y Educación Digital</p>
+        <h1 id="heroT">Cápsulas docentes para tu aula virtual y la IA, <span class="ac">paso a paso</span></h1>
         <p class="lead">16 guías cortas y prácticas para crear, organizar y evaluar tus cursos en Moodle, y para apoyarte en la inteligencia artificial. Léelas aquí mismo o descárgalas en PDF.</p>
         <div class="hero-cta">
           <button class="btn btn-pri" type="button" id="ctaStart">Empezar por la cápsula 01</button>
-          <a class="btn btn-ghost-inv" href="#capsulas">Ver todas las cápsulas</a>
+          <a class="text-link" href="#capsulas">Ver todas las cápsulas <svg class="arw" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
-      <aside class="progress-card" aria-labelledby="pgTitle">
-        <p class="pg-k" id="pgTitle">Tu avance</p>
-        <p class="pg-num"><b id="sSeen">0</b> de <span id="sTotal">16</span> cápsulas vistas</p>
-        <div class="bar" role="progressbar" aria-labelledby="pgTitle" aria-valuemin="0" aria-valuemax="16" aria-valuenow="0" id="pgBar"><span></span></div>
+      <aside class="progress" aria-labelledby="pgTitle">
+        <p class="progress-k" id="pgTitle">Tu avance</p>
+        <p class="progress-num"><b id="sSeen">0</b> de <span id="sTotal">16</span> cápsulas vistas</p>
+        <div class="dots" id="pgDots" aria-hidden="true"></div>
+        <div class="sr-only" role="progressbar" aria-labelledby="pgTitle" aria-valuemin="0" aria-valuemax="16" aria-valuenow="0" id="pgBar"></div>
         <p class="pg-next" id="pgNext"></p>
         <p class="pg-note">Tu avance se guarda solo en este navegador.</p>
       </aside>
@@ -55,18 +61,18 @@
 
   <section class="sec" id="como" aria-labelledby="comoT">
     <div class="wrap">
-      <h2 class="sec-t" id="comoT"><span class="lt">¿Cómo</span> funciona?</h2>
+      <h2 class="sec-t" id="comoT">¿Cómo <span class="ac">funciona?</span></h2>
       <ol class="how">
-        <li><span class="how-n">1</span><div><h3>Elige una ruta o una cápsula</h3><p>Las cápsulas están ordenadas de lo básico a lo avanzado. Si es tu primera vez, empieza por la ruta 1.</p></div></li>
-        <li><span class="how-n">2</span><div><h3>Abre la guía y sigue los pasos</h3><p>Cada cápsula tiene objetivo, paso a paso, consejos, errores frecuentes y un reto para aplicar en tu curso.</p></div></li>
-        <li><span class="how-n">3</span><div><h3>Descárgala si la necesitas</h3><p>Guárdala en PDF para consultarla o imprimirla. Marca la cápsula como vista para llevar tu avance.</p></div></li>
+        <li><span class="how-n">01</span><div><h3>Elige una ruta o una cápsula</h3><p>Las cápsulas están ordenadas de lo básico a lo avanzado. Si es tu primera vez, empieza por la ruta 1.</p></div></li>
+        <li><span class="how-n">02</span><div><h3>Abre la guía y sigue los pasos</h3><p>Cada cápsula tiene objetivo, paso a paso, consejos, errores frecuentes y un reto para aplicar en tu curso.</p></div></li>
+        <li><span class="how-n">03</span><div><h3>Descárgala si la necesitas</h3><p>Guárdala en PDF para consultarla o imprimirla. Marca la cápsula como vista para llevar tu avance.</p></div></li>
       </ol>
     </div>
   </section>
 
-  <section class="sec sec-alt" id="rutas" aria-labelledby="rutasT">
+  <section class="sec tint-mint" id="rutas" aria-labelledby="rutasT">
     <div class="wrap">
-      <h2 class="sec-t" id="rutasT"><span class="lt">Rutas</span> formativas</h2>
+      <h2 class="sec-t" id="rutasT">Rutas <span class="ac">formativas</span></h2>
       <p class="sec-d">Cuatro recorridos temáticos. Haz clic en una cápsula para abrirla o en «Ver la ruta» para filtrar el catálogo.</p>
       <div class="routes" id="routes"></div>
     </div>
@@ -74,12 +80,12 @@
 
   <section class="sec" id="capsulas" aria-labelledby="capsT">
     <div class="wrap">
-      <h2 class="sec-t" id="capsT"><span class="lt">Todas las</span> cápsulas</h2>
+      <h2 class="sec-t" id="capsT">Todas las <span class="ac">cápsulas</span></h2>
       <div class="tools" role="search">
         <div class="field">
           <label for="q">Buscar un tema</label>
           <div class="search">
-            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             <input id="q" type="search" placeholder="Por ejemplo: rúbrica, foro, calificar…" autocomplete="off">
           </div>
         </div>
@@ -87,56 +93,54 @@
         <fieldset class="chips"><legend>Nivel</legend><div id="fNivel"></div></fieldset>
         <fieldset class="chips"><legend>Estado</legend><div id="fEstado"></div></fieldset>
       </div>
-      <div class="count-row"><p class="count" id="count" aria-live="polite"></p><button class="link-btn" id="reset" type="button">Quitar filtros</button></div>
+      <div class="count-row"><p class="count" id="count" aria-live="polite"></p><button class="text-link" id="reset" type="button">Quitar filtros</button></div>
       <div class="grid" id="grid"></div>
     </div>
   </section>
 
-  <section class="sec sec-alt" id="descargas" aria-labelledby="dlT">
+  <section class="sec tint-lavender" id="descargas" aria-labelledby="dlT">
     <div class="wrap">
-      <h2 class="sec-t" id="dlT"><span class="lt">Zona de</span> descargas</h2>
+      <h2 class="sec-t" id="dlT">Zona de <span class="ac">descargas</span></h2>
       <div class="dl-all">
         <div><h3>Guía completa de las 16 cápsulas</h3><p>Un solo PDF con todas las guías, ideal para imprimir o consultar sin conexión.</p></div>
-        <a class="btn btn-dark" href="pdf/Capsulas_CEA_Guia_Completa.pdf" download>
-          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-          Descargar guía completa (PDF)</a>
+        <a class="btn btn-pri" href="pdf/Capsulas_CEA_Guia_Completa.pdf" download>Descargar guía completa (PDF)
+          <svg class="arw" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
       </div>
-      <div class="tbl-wrap"><table class="dl-table">
-        <caption class="sr-only">Guías individuales en PDF</caption>
-        <thead><tr><th scope="col">Cápsula</th><th scope="col">Ruta</th><th scope="col">Descarga</th></tr></thead>
-        <tbody id="dlRows"></tbody>
-      </table></div>
+      <ul class="dl-list" id="dlRows" aria-label="Guías individuales en PDF"></ul>
     </div>
   </section>
 
-  <section class="sec" aria-labelledby="helpT">
-    <div class="wrap">
-      <div class="help">
-        <h2 id="helpT"><span class="lt">¿Necesitas</span> acompañamiento?</h2>
-        <p>El equipo del CEA te ayuda a implementar cualquiera de estas cápsulas en tu curso.</p>
-      </div>
-    </div>
+  <section class="institucional" aria-label="Respaldo institucional">
+    <div class="wrap"><img src="assets/img/logos-institucionales.png" alt="Universidad de San Buenaventura · Acreditación Institucional Multicampus de Alta Calidad · CEA, Centro de Innovación Pedagógica y Educación Digital" width="1228" height="219" loading="lazy"></div>
   </section>
 </main>
 
-<footer class="foot">
-  <div class="foot-logos">
-    <div class="wrap"><img src="assets/img/logos-institucionales.png" alt="Universidad de San Buenaventura · Acreditación Institucional Multicampus de Alta Calidad · CEA, Centro de Innovación Pedagógica y Educación Digital" width="1228" height="219" loading="lazy"></div>
+<footer class="foot night">
+  <div class="wrap foot-in">
+    <div class="foot-help">
+      <h2>¿Necesitas <span class="ac">acompañamiento?</span></h2>
+      <p>El equipo del CEA te ayuda a implementar cualquiera de estas cápsulas en tu curso.</p>
+    </div>
+    <div class="foot-brand">
+      <img src="assets/img/logo-usb-noche.png" alt="" width="362" height="116">
+      <span class="brand-sep" aria-hidden="true"></span>
+      <img src="assets/img/cea-simbolo.png" alt="" width="192" height="91">
+    </div>
+    <p class="foot-legal">CEA · Centro de Innovación Pedagógica y Educación Digital — Universidad de San Buenaventura Cali</p>
   </div>
-  <div class="foot-bar"><div class="wrap"><b>CEA</b> · Centro de Innovación Pedagógica y Educación Digital — Universidad de San Buenaventura Cali</div></div>
 </footer>
 
 <!-- Lector de guía -->
 <div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="rTitle" hidden>
   <div class="r-panel">
-    <header class="r-head">
+    <header class="r-head night">
       <div class="r-head-in">
-        <p class="r-k" id="rK"></p>
+        <p class="label" id="rK"></p>
         <h2 id="rTitle"></h2>
         <p class="r-sub" id="rSub"></p>
       </div>
       <button class="r-close" id="rClose" type="button" aria-label="Cerrar la guía">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
     </header>
     <div class="r-scroll" id="rScroll">

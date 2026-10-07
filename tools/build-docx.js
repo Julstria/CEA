@@ -39,21 +39,21 @@ const label = (t, color) => new Paragraph({ spacing: { after: 60 }, children: [r
 
 function cover(g, R) {
   const kids = [
-    new Paragraph({ spacing: { after: 80 }, children: [run(`CÁPSULA ${g.n}  ·  ${g.ruta.toUpperCase()}`, { bold: true, size: 18, color: R.on, characterSpacing: 30 })] }),
-    new Paragraph({ spacing: { after: g.sub ? 80 : 0 }, children: [run(g.title, { bold: true, size: 48, color: R.on })] })
+    new Paragraph({ spacing: { after: 80 }, children: [run(`CÁPSULA ${g.n}  ·  ${g.ruta.toUpperCase()}`, { bold: true, size: 18, color: "B4C4C6", characterSpacing: 30 })] }),
+    new Paragraph({ spacing: { after: g.sub ? 80 : 0 }, children: [run(g.title, { size: 48, color: T.paper })] })
   ];
-  if (g.sub) kids.push(new Paragraph({ children: [run(g.sub, { size: 24, color: R.on })] }));
+  if (g.sub) kids.push(new Paragraph({ children: [run(g.sub, { size: 24, color: "B4C4C6" })] }));
   const metaCells = [["Ruta", g.ruta], ["Nivel", g.nivel], ["Tiempo de lectura", g.duracion], ["Plataforma", g.plataforma]];
   const cw = W / 4;
   return [
     new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 200 }, children: [new ImageRun({ type: "png", data: LOGOS, transformation: { width: 540, height: 96 }, altText: { title: "Logos institucionales", description: "Universidad de San Buenaventura, Acreditación Institucional Multicampus de Alta Calidad y CEA", name: "logos" } })] }),
-    box(kids, { fill: R.f, margins: { top: 360, bottom: 360, left: 360, right: 360 } }),
-    new Paragraph({ spacing: { after: 0 }, border: { top: { style: BorderStyle.SINGLE, size: 36, color: g.ruta === "IA para la docencia" ? T.ink : T.brand, space: 0 } }, children: [] }),
+    box(kids, { fill: T.night, margins: { top: 360, bottom: 360, left: 360, right: 360 } }),
+    new Paragraph({ spacing: { after: 0 }, border: { top: { style: BorderStyle.SINGLE, size: 36, color: R.f, space: 0 } }, children: [] }),
     new Table({
       width: { size: W, type: WidthType.DXA }, columnWidths: metaCells.map(() => cw), layout: TableLayoutType.FIXED,
       borders: { ...NOB, insideVertical: { style: BorderStyle.SINGLE, size: 4, color: T.line } },
       rows: [new TableRow({ children: metaCells.map(([k, v]) => new TableCell({
-        width: { size: cw, type: WidthType.DXA }, shading: { type: ShadingType.CLEAR, color: "auto", fill: R.l },
+        width: { size: cw, type: WidthType.DXA }, shading: { type: ShadingType.CLEAR, color: "auto", fill: T.mint },
         margins: { top: 140, bottom: 140, left: 200, right: 160 },
         children: [
           new Paragraph({ spacing: { after: 20 }, children: [run(k.toUpperCase(), { size: 15, bold: true, color: T.muted, characterSpacing: 20 })] }),
@@ -68,17 +68,17 @@ function cover(g, R) {
 function h1(text, R) {
   return new Paragraph({
     heading: HeadingLevel.HEADING_1, spacing: { before: 360, after: 160 }, keepNext: true,
-    border: { bottom: { style: BorderStyle.SINGLE, size: 18, color: R.f, space: 4 } },
-    children: [run(text.toUpperCase(), { bold: true, size: 28, color: T.ink })]
+    border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: T.line, space: 4 } },
+    children: [run("■  ", { size: 24, color: R.f }), run(text, { bold: true, size: 30, color: T.ink })]
   });
 }
 function step(s, R) {
   return new Paragraph({
     heading: HeadingLevel.HEADING_2, spacing: { before: 280, after: 100 }, keepNext: true,
-    shading: { type: ShadingType.CLEAR, color: "auto", fill: R.l },
+    shading: { type: ShadingType.CLEAR, color: "auto", fill: T.soft },
     border: { left: { style: BorderStyle.SINGLE, size: 36, color: R.f, space: 8 } },
     indent: { left: 160 },
-    children: [run(`PASO ${String(s.n).padStart(2, "0")}`, { bold: true, size: 18, color: R.c, characterSpacing: 20 }), run("   "), run(s.title, { bold: true, size: 24, color: T.ink })]
+    children: [run(`PASO ${String(s.n).padStart(2, "0")}`, { bold: true, size: 18, color: T.muted, characterSpacing: 20 }), run("   "), run(s.title, { bold: true, size: 24, color: T.ink })]
   });
 }
 const h3 = (t, R) => new Paragraph({ heading: HeadingLevel.HEADING_3, spacing: { before: 200, after: 80 }, keepNext: true, children: [run(t, { bold: true, size: 23, color: T.ink })] });
@@ -87,7 +87,7 @@ const bullet = rs => new Paragraph({ numbering: { reference: "bul", level: 0 }, 
 
 function callout(b, R) {
   const C = T.callouts[b.kind];
-  return [box([label(C.label, C.c), ...b.paras.map((p, i) => new Paragraph({ spacing: { after: i < b.paras.length - 1 ? 80 : 0, line: 290 }, children: runsOf(p, { size: 22, color: T.ink }) }))], { fill: C.l, bar: C.bar }), gap(160)];
+  return [box([label(C.label, T.muted), ...b.paras.map((p, i) => new Paragraph({ spacing: { after: i < b.paras.length - 1 ? 80 : 0, line: 290 }, children: runsOf(p, { size: 22, color: T.ink }) }))], { fill: C.l, bar: C.bar }), gap(160)];
 }
 function mono(title, lines, hint) {
   const kids = [label(title, T.ink)];
@@ -106,12 +106,12 @@ function table(b, R) {
   });
   // agrupa celdas vacías de la primera columna (lista de chequeo)
   const spans = b.rows.map((r, i) => { if (!r[0]) return 0; let k = 1; while (b.rows[i + k] && !b.rows[i + k][0]) k++; return k; });
-  const rows = [new TableRow({ tableHeader: true, children: b.head.map((h, i) => cell(h, widths[i], { bold: true, fill: R.f, color: R.on, center: h === "Listo" })) })];
+  const rows = [new TableRow({ tableHeader: true, children: b.head.map((h, i) => cell(h, widths[i], { bold: true, fill: T.mint, color: T.ink, center: h === "Listo" })) })];
   b.rows.forEach((r, ri) => {
     const fill = ri % 2 ? T.soft : "FFFFFF";
     const cells = [];
     r.forEach((t, ci) => {
-      if (ci === 0 && b.head[2] === "Listo") { if (spans[ri]) cells.push(cell(t, widths[0], { bold: true, fill: R.l, rowSpan: spans[ri] > 1 ? spans[ri] : undefined })); return; }
+      if (ci === 0 && b.head[2] === "Listo") { if (spans[ri]) cells.push(cell(t, widths[0], { bold: true, fill: T.soft, rowSpan: spans[ri] > 1 ? spans[ri] : undefined })); return; }
       const box = t === "☐";
       cells.push(cell(t, widths[ci], { bold: ci === 0 && n > 1, fill, center: box, size: box ? 26 : 20, font: box ? "Segoe UI Symbol" : undefined }));
     });
@@ -126,7 +126,7 @@ function body(g) {
   const R = T.routes[g.ruta];
   const out = [...cover(g, R)];
   out.push(h1("¿Qué lograrás?", R));
-  out.push(box([label("Objetivo de aprendizaje", R.c), new Paragraph({ spacing: { line: 300 }, children: [run(g.objetivo, { size: 23, color: T.ink })] })], { fill: R.l, bar: R.f }), gap(120));
+  out.push(box([label("Objetivo de aprendizaje", T.muted), new Paragraph({ spacing: { line: 300 }, children: [run(g.objetivo, { size: 23, color: T.ink })] })], { fill: T.lavender, bar: R.f }), gap(120));
   for (const s of g.secciones) {
     if (!s.blocks.length) continue;
     out.push(h1(s.h, R));
@@ -144,10 +144,10 @@ function body(g) {
   }
   out.push(gap(240));
   out.push(box([
-    new Paragraph({ spacing: { after: 60 }, children: [run("¿Necesitas acompañamiento?", { bold: true, size: 24, color: T.brand })] }),
+    new Paragraph({ spacing: { after: 60 }, children: [run("¿Necesitas acompañamiento?", { bold: true, size: 24, color: "FFAD79" })] }),
     new Paragraph({ spacing: { after: 60 }, children: [run("El equipo del CEA te ayuda a implementar esta cápsula en tu curso.", { size: 21, color: "FFFFFF" })] }),
-    new Paragraph({ children: [run("CEA · Centro de Innovación Pedagógica y Educación Digital — Universidad de San Buenaventura Cali", { size: 18, color: "D1D5DB" })] })
-  ], { fill: T.ink, bar: T.brand, margins: { top: 240, bottom: 240, left: 300, right: 300 } }));
+    new Paragraph({ children: [run("CEA · Centro de Innovación Pedagógica y Educación Digital — Universidad de San Buenaventura Cali", { size: 18, color: "B4C4C6" })] })
+  ], { fill: T.night, bar: T.brand, margins: { top: 240, bottom: 240, left: 300, right: 300 } }));
   return out;
 }
 
@@ -171,7 +171,7 @@ function doc(g) {
       headers: { default: new Header({ children: [new Paragraph({
         tabStops: [{ type: TabStopType.RIGHT, position: W }],
         border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: T.line, space: 6 } },
-        children: [run("CEA", { bold: true, size: 17, color: T.brandText }), run("  ·  Centro de Innovación Pedagógica y Educación Digital", { size: 17, color: T.muted }), run(`\tCápsula ${g.n}`, { bold: true, size: 17, color: R.c })]
+        children: [run("CEA", { bold: true, size: 17, color: T.brandText }), run("  ·  Centro de Innovación Pedagógica y Educación Digital", { size: 17, color: T.muted }), run(`\tCápsula ${g.n}`, { bold: true, size: 17, color: T.ink })]
       })] }) },
       footers: { default: new Footer({ children: [new Paragraph({
         tabStops: [{ type: TabStopType.RIGHT, position: W }],

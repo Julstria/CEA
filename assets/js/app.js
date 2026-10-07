@@ -29,10 +29,10 @@ const seenCount = () => CAPS.filter(c => seen[c.n]).length;
 const st = { ruta: "", nivel: "", estado: "", q: "" };
 const HASH = { fundamentos: 0, actividades: 1, gestion: 2, ia: 3 };
 
-const DL = '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>';
-const ARROW = '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
-const BACK = '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>';
-const CHECK = '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+const DL = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>';
+const ARROW = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+const BACK = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>';
+const CHECK = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
 const PLAY = '<svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/></svg>';
 
 /* ---------- Avance ---------- */
@@ -40,10 +40,11 @@ function renderProgress() {
   const n = seenCount();
   $("sSeen").textContent = n; $("sTotal").textContent = CAPS.length;
   $("pgBar").setAttribute("aria-valuenow", n); $("pgBar").setAttribute("aria-valuemax", CAPS.length);
-  $("pgBar").firstElementChild.style.width = (n / CAPS.length * 100) + "%";
+  // un punto por cápsula: turquesa las vistas
+  $("pgDots").innerHTML = CAPS.map(c => `<i class="${seen[c.n] ? "on" : ""}"></i>`).join("");
   const next = CAPS.find(c => !seen[c.n]);
   $("pgNext").innerHTML = next
-    ? `<button class="link-btn strong" type="button" data-open="${next.n}">Continuar con la cápsula ${next.n}: ${esc(next.title)} ${ARROW}</button>`
+    ? `<button class="text-link" type="button" data-open="${next.n}">Continuar con la cápsula ${next.n}: ${esc(next.title)} ${ARROW}</button>`
     : "¡Completaste todas las cápsulas!";
   $("ctaStart").textContent = n && next ? `Continuar con la cápsula ${next.n}` : "Empezar por la cápsula 01";
   $("ctaStart").dataset.open = next ? next.n : "01";
@@ -55,10 +56,11 @@ function renderRoutes() {
     const caps = CAPS.filter(c => c.ruta === r.k);
     const done = caps.filter(c => seen[c.n]).length;
     return `<article class="route r-${r.key}">
-      <div class="route-head"><span class="route-num" aria-hidden="true">${i + 1}</span><h3><span class="sr-only">Ruta ${i + 1}: </span>${esc(r.k)}<small>${caps.length} cápsulas · ${done} vistas</small></h3></div>
-      <div class="route-body"><p>${esc(r.d)}</p>
+      <h3><span class="piece" aria-hidden="true"></span><span class="route-num">Ruta ${i + 1}</span>${esc(r.k)}</h3>
+      <p class="route-d">${esc(r.d)}</p>
+      <p class="route-c">${caps.length} cápsulas · ${done} vistas</p>
       <ol class="route-list">${caps.map(c => `<li><button type="button" data-open="${c.n}"><span class="rl-n">${c.n}</span><span class="rl-t">${esc(c.title)}</span>${seen[c.n] ? `<span class="rl-ok" aria-label="vista">${CHECK}</span>` : ""}</button></li>`).join("")}</ol>
-      <button class="btn btn-soft" type="button" data-ruta="${esc(r.k)}">Ver la ruta en el catálogo ${ARROW}</button></div>
+      <button class="text-link" type="button" data-ruta="${esc(r.k)}">Ver la ruta en el catálogo ${ARROW}</button>
     </article>`;
   }).join("");
 }
@@ -89,24 +91,21 @@ function renderGrid() {
   $("reset").hidden = !any;
   $("grid").innerHTML = list.length ? list.map(c => `
     <article class="card r-${rutaKey(c.ruta)}">
-      <div class="card-top"><span class="card-n">${c.n}</span>
-        <span class="card-tags">${seen[c.n] ? `<span class="tag tag-ok">${CHECK}Vista</span>` : ""}${VIDEOS[c.n] ? `<span class="tag">${PLAY}Video</span>` : ""}</span></div>
-      <p class="card-r">${esc(c.ruta)}</p>
       <h3><button type="button" class="card-link" data-open="${c.n}">${esc(c.title)}</button></h3>
       ${c.sub ? `<p class="card-sub">${esc(c.sub)}</p>` : ""}
+      <p class="card-r"><span class="piece" aria-hidden="true"></span>Cápsula ${c.n} · ${esc(c.ruta)}</p>
       <p class="card-obj">${esc(c.objetivo)}</p>
-      <ul class="card-meta"><li>${esc(c.nivel)}</li><li>${esc(c.duracion)}</li><li>${c.pasos.length} pasos</li></ul>
+      <p class="card-meta">${esc(c.nivel)} · ${esc(c.duracion)} · ${c.pasos.length} pasos${seen[c.n] ? ` · <span class="ok">${CHECK}Vista</span>` : ""}${VIDEOS[c.n] ? ` · ${PLAY}Video` : ""}</p>
       <div class="card-act">
-        <button type="button" class="btn btn-pri btn-sm" data-open="${c.n}">Abrir guía</button>
-        <a class="btn btn-line btn-sm" href="${docPath(c)}" download aria-label="Descargar PDF de la cápsula ${c.n}">${DL}Descargar PDF</a>
+        <button type="button" class="btn btn-pri btn-sm" data-open="${c.n}">Abrir guía ${ARROW}</button>
+        <a class="text-link" href="${docPath(c)}" download aria-label="Descargar PDF de la cápsula ${c.n}">${DL}PDF</a>
       </div>
-    </article>`).join("") : `<div class="empty"><p>No hay cápsulas con esos filtros.</p><button class="btn btn-soft" type="button" data-reset>Quitar filtros</button></div>`;
+    </article>`).join("") : `<div class="empty"><p>No hay cápsulas con esos filtros.</p><button class="text-link" type="button" data-reset>Quitar filtros</button></div>`;
 }
 function renderDownloads() {
-  $("dlRows").innerHTML = CAPS.map(c => `<tr class="r-${rutaKey(c.ruta)}">
-    <th scope="row"><span class="dl-n">${c.n}</span>${esc(c.title)}</th>
-    <td><span class="dot"></span>${esc(c.ruta)}</td>
-    <td><a href="${docPath(c)}" download aria-label="PDF de la cápsula ${c.n}">${DL}PDF</a></td></tr>`).join("");
+  $("dlRows").innerHTML = CAPS.map(c => `<li class="r-${rutaKey(c.ruta)}">
+    <span class="dl-n">${c.n}</span><span class="dl-t">${esc(c.title)}<small><span class="piece" aria-hidden="true"></span>${esc(c.ruta)}</small></span>
+    <a class="text-link" href="${docPath(c)}" download aria-label="Descargar PDF de la cápsula ${c.n}: ${esc(c.title)}">${DL}PDF</a></li>`).join("");
 }
 function render() { renderProgress(); renderRoutes(); renderFilters(); renderGrid(); }
 
@@ -212,6 +211,18 @@ document.addEventListener("keydown", e => {
 });
 
 // Enlaces directos: #fundamentos, #actividades, #gestion, #ia o #capsula-05
+// Lectura oscura: sin preferencia guardada sigue al sistema
+const themeBtn = $("theme");
+const isDark = () => document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+themeBtn.hidden = false;
+themeBtn.setAttribute("aria-pressed", isDark());
+themeBtn.onclick = () => {
+  const t = isDark() ? "light" : "dark";
+  document.documentElement.dataset.theme = t;
+  try { localStorage.setItem("cea-theme", t); } catch (e) {}
+  themeBtn.setAttribute("aria-pressed", t === "dark");
+};
+
 function fromHash() {
   const h = location.hash.slice(1);
   if (HASH[h] !== undefined) { st.ruta = RUTAS[HASH[h]].k; render(); setTimeout(() => $("capsulas").scrollIntoView(), 0); }
