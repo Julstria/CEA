@@ -4,9 +4,12 @@ html{font-size:14px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{font-size:14.5px;line-height:1.55;background:#fff}
 .cap{break-before:page}
 .cap:first-child{break-before:auto}
-.pc-cover{background:var(--r);color:#fff;border-radius:12px;padding:26px 28px}
-.pc-k{font-weight:700;font-size:13px;letter-spacing:.3px}
-.pc-cover h1{color:#fff;font-size:30px;margin-top:6px}
+.pc-logos{margin:-4px 0 14px;text-align:center}
+.pc-logos img{width:78%}
+.pc-cover{background:var(--rf);color:var(--ron);padding:24px 28px;border-bottom:5px solid var(--naranja)}
+.r-ia .pc-cover{border-bottom-color:var(--negro)}
+.pc-k{font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.pc-cover h1{color:inherit;font-size:30px;font-weight:800;margin-top:6px}
 .pc-sub{font-size:16px;margin-top:6px}
 .g-meta{margin-top:12px}
 .g-meta li{padding:10px}
@@ -26,24 +29,28 @@ body{font-size:14.5px;line-height:1.55;background:#fff}
 .guide .tbl-wrap{overflow:visible}
 .checklist label{min-height:0;padding:7px 12px}
 .checklist input{width:16px;height:16px}
-.pc-help{margin-top:28px;background:#1F2937;color:#E5E7EB;border-radius:12px;padding:18px 22px;display:grid;gap:4px}
-.pc-help b{color:#fff;font-family:var(--head);font-size:16px}
+.pc-help{margin-top:28px;background:var(--negro);color:#DADAD6;border-left:8px solid var(--naranja);padding:18px 22px;display:grid;gap:4px}
+.pc-help b{color:var(--naranja);font-family:var(--head);font-size:16px}
 
 /* Guía completa */
-.book-cover{height:240mm;display:flex;flex-direction:column;justify-content:center;padding:0 10mm;background:linear-gradient(160deg,#FDF0E8,#fff 60%);border-left:10px solid var(--brand);border-radius:6px}
-.bc-k{font-weight:700;color:var(--pri);font-size:15px}
-.book-cover h1{font-size:54px;margin-top:14px;letter-spacing:-.5px}
-.bc-sub{font-size:20px;margin-top:14px;max-width:520px;color:var(--ink)}
-.bc-u{margin-top:auto;padding-bottom:12mm;font-weight:700;color:var(--muted)}
-.book-cover>:first-child{margin-top:auto}
+.book-cover{height:240mm;display:flex;flex-direction:column;background:var(--negro);color:#fff;padding:0 0 14mm;border-bottom:12px solid var(--naranja);position:relative;overflow:hidden}
+.book-cover::before{content:"";position:absolute;right:-40mm;top:40mm;width:120mm;height:120mm;background:var(--naranja);opacity:.14;transform:rotate(12deg)}
+.bc-logos{background:#fff;padding:8mm 10mm;width:100%}
+.bc-k{margin:auto 12mm 0;display:flex;gap:10px;align-items:center;font-family:var(--head);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:14px}
+.bc-k span{background:var(--naranja);color:var(--negro);padding:4px 10px}
+.book-cover h1{color:var(--naranja);font-size:60px;font-weight:800;margin:14px 12mm 0;text-transform:uppercase;line-height:1.05}
+.book-cover h1 .lt{color:#fff;display:block}
+.bc-sub{font-size:20px;margin:16px 12mm 0;max-width:520px;color:#DADAD6}
+.bc-u{margin:auto 12mm 0;font-weight:700;color:#BDBDB8}
 .book-index{break-before:page}
-.book-index h2{font-size:28px;margin-bottom:14px}
-.bi-route{border-left:5px solid var(--r);padding:6px 0 6px 16px;margin:16px 0}
-.bi-route h3{font-size:17px;color:var(--r)}
+.book-index h2{font-size:28px;font-weight:800;text-transform:uppercase;margin-bottom:14px}
+.book-index h2::before{content:"";display:block;width:56px;height:7px;background:var(--naranja);margin-bottom:12px}
+.bi-route{border-left:6px solid var(--rf);padding:6px 0 6px 16px;margin:16px 0}
+.bi-route h3{font-size:16px;color:var(--r);font-weight:800;text-transform:uppercase}
 .bi-route p{color:var(--muted);font-size:13.5px}
 .bi-route ol{list-style:none;padding:0;margin:8px 0 0}
 .bi-route li{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--line);font-weight:600;color:var(--ink)}
-.bi-route li span{color:var(--r);font-family:var(--head);width:24px}
+.bi-route li span{color:var(--r);font-family:var(--num);width:26px}
 .bi-route li em{margin-left:auto;font-style:normal;font-weight:400;color:var(--muted);font-size:13px}
 
 /* Títulos agrupados con su primer bloque (ver print.html) */

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Cápsulas Docentes CEA – versión para PDF</title>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Graduate&family=Montserrat:wght@300;400;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/styles.css">
 <link rel="stylesheet" href="print.css">
 </head>
@@ -16,6 +16,7 @@
 const qs = new URLSearchParams(location.search);
 const one = c => `
   <section class="cap r-${rutaKey(c.ruta)}">
+    <div class="pc-logos"><img src="../assets/img/logos-institucionales.png" alt=""></div>
     <header class="pc-cover">
       <p class="pc-k">Cápsula ${c.n} · Ruta ${rutaIdx(c.ruta) + 1}: ${esc(c.ruta)}</p>
       <h1>${esc(c.title)}</h1>${c.sub ? `<p class="pc-sub">${esc(c.sub)}</p>` : ""}
@@ -27,8 +28,9 @@ const one = c => `
 let html = "";
 if (qs.has("all")) {
   html += `<section class="book-cover">
-    <p class="bc-k">CEA · Centro de Innovación Pedagógica y Educación Digital</p>
-    <h1>Cápsulas Docentes</h1>
+    <img class="bc-logos" src="../assets/img/logos-institucionales.png" alt="">
+    <p class="bc-k"><span>Cápsulas docentes</span> USB Cali</p>
+    <h1><span class="lt">Cápsulas</span> Docentes</h1>
     <p class="bc-sub">Guía completa: aula virtual Moodle e inteligencia artificial para la docencia</p>
     <p class="bc-u">Universidad de San Buenaventura Cali</p></section>
     <section class="book-index"><h2>Contenido</h2>${RUTAS.map((r, i) => `

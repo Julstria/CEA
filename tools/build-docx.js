@@ -5,13 +5,14 @@ const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType, ShadingType,
   BorderStyle, AlignmentType, Header, Footer, PageNumber, LevelFormat, HeadingLevel,
-  TabStopType, VerticalAlign, TableLayoutType
+  TabStopType, VerticalAlign, TableLayoutType, ImageRun
 } = require("docx");
 const T = require("./theme");
 
 const ROOT = path.join(__dirname, "..");
 const outDir = path.join(ROOT, "word");
 const guides = require("./data").CAPS;
+const LOGOS = fs.readFileSync(path.join(ROOT, "assets", "img", "logos-institucionales.png")); // 1228 x 219 px
 
 const FONT = "Calibri";
 const W = 10080; // ancho útil: carta con márgenes de 0,75"
@@ -38,14 +39,16 @@ const label = (t, color) => new Paragraph({ spacing: { after: 60 }, children: [r
 
 function cover(g, R) {
   const kids = [
-    new Paragraph({ spacing: { after: 80 }, children: [run(`CÁPSULA ${g.n}  ·  ${g.ruta.toUpperCase()}`, { bold: true, size: 18, color: "FFFFFF", characterSpacing: 30 })] }),
-    new Paragraph({ spacing: { after: g.sub ? 80 : 0 }, children: [run(g.title, { bold: true, size: 48, color: "FFFFFF" })] })
+    new Paragraph({ spacing: { after: 80 }, children: [run(`CÁPSULA ${g.n}  ·  ${g.ruta.toUpperCase()}`, { bold: true, size: 18, color: R.on, characterSpacing: 30 })] }),
+    new Paragraph({ spacing: { after: g.sub ? 80 : 0 }, children: [run(g.title, { bold: true, size: 48, color: R.on })] })
   ];
-  if (g.sub) kids.push(new Paragraph({ children: [run(g.sub, { size: 24, color: "FFFFFF" })] }));
+  if (g.sub) kids.push(new Paragraph({ children: [run(g.sub, { size: 24, color: R.on })] }));
   const metaCells = [["Ruta", g.ruta], ["Nivel", g.nivel], ["Tiempo de lectura", g.duracion], ["Plataforma", g.plataforma]];
   const cw = W / 4;
   return [
-    box(kids, { fill: R.c, margins: { top: 360, bottom: 360, left: 360, right: 360 } }),
+    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 200 }, children: [new ImageRun({ type: "png", data: LOGOS, transformation: { width: 540, height: 96 }, altText: { title: "Logos institucionales", description: "Universidad de San Buenaventura, Acreditación Institucional Multicampus de Alta Calidad y CEA", name: "logos" } })] }),
+    box(kids, { fill: R.f, margins: { top: 360, bottom: 360, left: 360, right: 360 } }),
+    new Paragraph({ spacing: { after: 0 }, border: { top: { style: BorderStyle.SINGLE, size: 36, color: g.ruta === "IA para la docencia" ? T.ink : T.brand, space: 0 } }, children: [] }),
     new Table({
       width: { size: W, type: WidthType.DXA }, columnWidths: metaCells.map(() => cw), layout: TableLayoutType.FIXED,
       borders: { ...NOB, insideVertical: { style: BorderStyle.SINGLE, size: 4, color: T.line } },
@@ -65,15 +68,15 @@ function cover(g, R) {
 function h1(text, R) {
   return new Paragraph({
     heading: HeadingLevel.HEADING_1, spacing: { before: 360, after: 160 }, keepNext: true,
-    border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: R.c, space: 4 } },
-    children: [run(text, { bold: true, size: 30, color: R.c })]
+    border: { bottom: { style: BorderStyle.SINGLE, size: 18, color: R.f, space: 4 } },
+    children: [run(text.toUpperCase(), { bold: true, size: 28, color: T.ink })]
   });
 }
 function step(s, R) {
   return new Paragraph({
     heading: HeadingLevel.HEADING_2, spacing: { before: 280, after: 100 }, keepNext: true,
     shading: { type: ShadingType.CLEAR, color: "auto", fill: R.l },
-    border: { left: { style: BorderStyle.SINGLE, size: 24, color: R.c, space: 8 } },
+    border: { left: { style: BorderStyle.SINGLE, size: 36, color: R.f, space: 8 } },
     indent: { left: 160 },
     children: [run(`PASO ${String(s.n).padStart(2, "0")}`, { bold: true, size: 18, color: R.c, characterSpacing: 20 }), run("   "), run(s.title, { bold: true, size: 24, color: T.ink })]
   });
@@ -83,14 +86,14 @@ const para = rs => new Paragraph({ spacing: { after: 140, line: 300 }, children:
 const bullet = rs => new Paragraph({ numbering: { reference: "bul", level: 0 }, spacing: { after: 80, line: 290 }, children: runsOf(rs, { size: 22, color: T.ink }) });
 
 function callout(b, R) {
-  const C = b.kind === "reto" ? { label: T.callouts.reto.label, c: R.c, l: R.l } : T.callouts[b.kind];
-  return [box([label(C.label, C.c), ...b.paras.map((p, i) => new Paragraph({ spacing: { after: i < b.paras.length - 1 ? 80 : 0, line: 290 }, children: runsOf(p, { size: 22, color: T.ink }) }))], { fill: C.l, bar: C.c }), gap(160)];
+  const C = T.callouts[b.kind];
+  return [box([label(C.label, C.c), ...b.paras.map((p, i) => new Paragraph({ spacing: { after: i < b.paras.length - 1 ? 80 : 0, line: 290 }, children: runsOf(p, { size: 22, color: T.ink }) }))], { fill: C.l, bar: C.bar }), gap(160)];
 }
 function mono(title, lines, hint) {
-  const kids = [label(title, T.muted)];
+  const kids = [label(title, T.ink)];
   if (hint) kids.push(new Paragraph({ spacing: { after: 100 }, children: [run(hint, { italics: true, size: 18, color: T.muted })] }));
   lines.forEach((l, i) => kids.push(new Paragraph({ spacing: { after: i < lines.length - 1 ? 60 : 0, line: 280 }, children: [new TextRun({ text: l, font: "Consolas", size: 19, color: T.ink })] })));
-  return [box(kids, { fill: "F3F4F6", bar: "9CA3AF" }), gap(160)];
+  return [box(kids, { fill: T.soft, bar: T.ink }), gap(160)];
 }
 function table(b, R) {
   const n = b.head.length;
@@ -103,7 +106,7 @@ function table(b, R) {
   });
   // agrupa celdas vacías de la primera columna (lista de chequeo)
   const spans = b.rows.map((r, i) => { if (!r[0]) return 0; let k = 1; while (b.rows[i + k] && !b.rows[i + k][0]) k++; return k; });
-  const rows = [new TableRow({ tableHeader: true, children: b.head.map((h, i) => cell(h, widths[i], { bold: true, fill: R.c, color: "FFFFFF", center: h === "Listo" })) })];
+  const rows = [new TableRow({ tableHeader: true, children: b.head.map((h, i) => cell(h, widths[i], { bold: true, fill: R.f, color: R.on, center: h === "Listo" })) })];
   b.rows.forEach((r, ri) => {
     const fill = ri % 2 ? T.soft : "FFFFFF";
     const cells = [];
@@ -123,7 +126,7 @@ function body(g) {
   const R = T.routes[g.ruta];
   const out = [...cover(g, R)];
   out.push(h1("¿Qué lograrás?", R));
-  out.push(box([label("Objetivo de aprendizaje", R.c), new Paragraph({ spacing: { line: 300 }, children: [run(g.objetivo, { size: 23, color: T.ink })] })], { fill: R.l, bar: R.c }), gap(120));
+  out.push(box([label("Objetivo de aprendizaje", R.c), new Paragraph({ spacing: { line: 300 }, children: [run(g.objetivo, { size: 23, color: T.ink })] })], { fill: R.l, bar: R.f }), gap(120));
   for (const s of g.secciones) {
     if (!s.blocks.length) continue;
     out.push(h1(s.h, R));
@@ -141,10 +144,10 @@ function body(g) {
   }
   out.push(gap(240));
   out.push(box([
-    new Paragraph({ spacing: { after: 60 }, children: [run("¿Necesitas acompañamiento?", { bold: true, size: 24, color: "FFFFFF" })] }),
+    new Paragraph({ spacing: { after: 60 }, children: [run("¿Necesitas acompañamiento?", { bold: true, size: 24, color: T.brand })] }),
     new Paragraph({ spacing: { after: 60 }, children: [run("El equipo del CEA te ayuda a implementar esta cápsula en tu curso.", { size: 21, color: "FFFFFF" })] }),
     new Paragraph({ children: [run("CEA · Centro de Innovación Pedagógica y Educación Digital — Universidad de San Buenaventura Cali", { size: 18, color: "D1D5DB" })] })
-  ], { fill: T.ink, margins: { top: 240, bottom: 240, left: 300, right: 300 } }));
+  ], { fill: T.ink, bar: T.brand, margins: { top: 240, bottom: 240, left: 300, right: 300 } }));
   return out;
 }
 
@@ -157,18 +160,18 @@ function doc(g) {
     styles: {
       default: { document: { run: { font: FONT, size: 22, color: T.ink }, paragraph: { spacing: { line: 290 } } } },
       paragraphStyles: [
-        { id: "Heading1", name: "Heading 1", basedOn: "Normal", next: "Normal", quickFormat: true, run: { font: FONT, size: 30, bold: true, color: R.c }, paragraph: { outlineLevel: 0 } },
+        { id: "Heading1", name: "Heading 1", basedOn: "Normal", next: "Normal", quickFormat: true, run: { font: FONT, size: 28, bold: true, color: T.ink }, paragraph: { outlineLevel: 0 } },
         { id: "Heading2", name: "Heading 2", basedOn: "Normal", next: "Normal", quickFormat: true, run: { font: FONT, size: 24, bold: true, color: T.ink }, paragraph: { outlineLevel: 1 } },
         { id: "Heading3", name: "Heading 3", basedOn: "Normal", next: "Normal", quickFormat: true, run: { font: FONT, size: 23, bold: true, color: T.ink }, paragraph: { outlineLevel: 2 } }
       ]
     },
-    numbering: { config: [{ reference: "bul", levels: [{ level: 0, format: LevelFormat.BULLET, text: "•", alignment: AlignmentType.LEFT, style: { paragraph: { indent: { left: 520, hanging: 280 } }, run: { color: R.c, bold: true } } }] }] },
+    numbering: { config: [{ reference: "bul", levels: [{ level: 0, format: LevelFormat.BULLET, text: "•", alignment: AlignmentType.LEFT, style: { paragraph: { indent: { left: 520, hanging: 280 } }, run: { color: T.brand, bold: true } } }] }] },
     sections: [{
       properties: { page: { size: { width: 12240, height: 15840 }, margin: { top: 1080, bottom: 1080, left: 1080, right: 1080, header: 500, footer: 500 } } },
       headers: { default: new Header({ children: [new Paragraph({
         tabStops: [{ type: TabStopType.RIGHT, position: W }],
         border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: T.line, space: 6 } },
-        children: [run("CEA", { bold: true, size: 17, color: T.brand }), run("  ·  Centro de Innovación Pedagógica y Educación Digital", { size: 17, color: T.muted }), run(`\tCápsula ${g.n}`, { bold: true, size: 17, color: R.c })]
+        children: [run("CEA", { bold: true, size: 17, color: T.brandText }), run("  ·  Centro de Innovación Pedagógica y Educación Digital", { size: 17, color: T.muted }), run(`\tCápsula ${g.n}`, { bold: true, size: 17, color: R.c })]
       })] }) },
       footers: { default: new Footer({ children: [new Paragraph({
         tabStops: [{ type: TabStopType.RIGHT, position: W }],

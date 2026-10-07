@@ -55,10 +55,10 @@ function renderRoutes() {
     const caps = CAPS.filter(c => c.ruta === r.k);
     const done = caps.filter(c => seen[c.n]).length;
     return `<article class="route r-${r.key}">
-      <div class="route-top"><span class="route-n">Ruta ${i + 1}</span><span class="route-c">${done}/${caps.length} vistas</span></div>
-      <h3>${esc(r.k)}</h3><p>${esc(r.d)}</p>
+      <div class="route-head"><span class="route-num" aria-hidden="true">${i + 1}</span><h3><span class="sr-only">Ruta ${i + 1}: </span>${esc(r.k)}<small>${caps.length} cápsulas · ${done} vistas</small></h3></div>
+      <div class="route-body"><p>${esc(r.d)}</p>
       <ol class="route-list">${caps.map(c => `<li><button type="button" data-open="${c.n}"><span class="rl-n">${c.n}</span><span class="rl-t">${esc(c.title)}</span>${seen[c.n] ? `<span class="rl-ok" aria-label="vista">${CHECK}</span>` : ""}</button></li>`).join("")}</ol>
-      <button class="btn btn-soft" type="button" data-ruta="${esc(r.k)}">Ver la ruta en el catálogo ${ARROW}</button>
+      <button class="btn btn-soft" type="button" data-ruta="${esc(r.k)}">Ver la ruta en el catálogo ${ARROW}</button></div>
     </article>`;
   }).join("");
 }
@@ -210,13 +210,6 @@ document.addEventListener("keydown", e => {
     else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
   }
 });
-$("theme").onclick = () => {
-  const r = document.documentElement;
-  const dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  r.dataset.theme = dark ? "light" : "dark";
-  store.set("cea-theme", r.dataset.theme);
-};
-(() => { const t = store.get("cea-theme", ""); if (t) document.documentElement.dataset.theme = t; })();
 
 // Enlaces directos: #fundamentos, #actividades, #gestion, #ia o #capsula-05
 function fromHash() {

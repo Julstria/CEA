@@ -16,8 +16,8 @@ const BROWSERS = [
 ].filter(Boolean);
 const executablePath = BROWSERS.find(p => fs.existsSync(p));
 
-const small = "font-family:Segoe UI,Arial,sans-serif;font-size:8px;color:#4B5563;width:100%;padding:0 17mm;display:flex;justify-content:space-between";
-const header = right => `<div style="${small}"><span><b style="color:#EF6C00">CEA</b> · Centro de Innovación Pedagógica y Educación Digital</span><span>${right}</span></div>`;
+const small = "font-family:Segoe UI,Arial,sans-serif;font-size:8px;color:#5C5C5A;width:100%;padding:0 17mm;display:flex;justify-content:space-between";
+const header = right => `<div style="${small}"><span><b style="color:#A65200">CEA</b> · Centro de Innovación Pedagógica y Educación Digital</span><span>${right}</span></div>`;
 const footer = left => `<div style="${small}"><span>${left} · Universidad de San Buenaventura Cali</span><span>Página <span class="pageNumber"></span> de <span class="totalPages"></span></span></div>`;
 
 async function print(page, query, out, head, foot) {
