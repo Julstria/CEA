@@ -5,7 +5,7 @@
 const $ = id => document.getElementById(id);
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 const NIVELES = ["Básico", "Intermedio", "Avanzado"];
-const ESTADOS = [["nv", "Pendientes"], ["v", "Vistas"], ["vid", "Con video"]];
+const ESTADOS = [["nv", "Pendientes"], ["v", "Vistas"]];
 
 // Convierte enlaces de YouTube/Vimeo en enlaces para incrustar
 function embedUrl(u) {
@@ -81,7 +81,7 @@ function filtered() {
   return CAPS.filter(c => {
     const hay = norm(`${c.n} ${c.title} ${c.sub} ${c.objetivo} ${c.pasos.join(" ")}`);
     return (!st.ruta || c.ruta === st.ruta) && (!st.nivel || c.nivel === st.nivel) && (!q || hay.includes(q)) &&
-      (!st.estado || (st.estado === "v" && seen[c.n]) || (st.estado === "nv" && !seen[c.n]) || (st.estado === "vid" && VIDEOS[c.n]));
+      (!st.estado || (st.estado === "v" && seen[c.n]) || (st.estado === "nv" && !seen[c.n]));
   });
 }
 function renderGrid() {
