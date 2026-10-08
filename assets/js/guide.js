@@ -89,6 +89,6 @@ function guideMeta(c) {
   return `<ul class="g-meta">
     <li>${icon("layers")}<span><b>Ruta</b>${esc(c.ruta)}</span></li>
     <li>${icon("gauge")}<span><b>Nivel</b>${esc(c.nivel)}</span></li>
-    <li>${icon("clock")}<span><b>Lectura</b>${esc(c.duracion)}</span></li>
+    <li>${icon("clock")}<span><b>Tiempo estimado</b>${esc(c.duracion)} · lectura + práctica</span></li>
     <li>${icon("monitor")}<span><b>Plataforma</b>${esc(c.plataforma)}</span></li></ul>`;
 }

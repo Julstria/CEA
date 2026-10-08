@@ -43,7 +43,7 @@ function cover(g, R) {
     new Paragraph({ spacing: { after: g.sub ? 80 : 0 }, children: [run(g.title, { size: 48, color: T.paper })] })
   ];
   if (g.sub) kids.push(new Paragraph({ children: [run(g.sub, { size: 24, color: "B4C4C6" })] }));
-  const metaCells = [["Ruta", g.ruta], ["Nivel", g.nivel], ["Tiempo de lectura", g.duracion], ["Plataforma", g.plataforma]];
+  const metaCells = [["Ruta", g.ruta], ["Nivel", g.nivel], ["Tiempo estimado", `${g.duracion} (lectura + práctica)`], ["Plataforma", g.plataforma]];
   const cw = W / 4;
   return [
     new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 200 }, children: [new ImageRun({ type: "jpg", data: LOGOS, transformation: { width: 540, height: 96 }, altText: { title: "Logos institucionales", description: "Universidad de San Buenaventura, Acreditación Institucional Multicampus de Alta Calidad y CEA", name: "logos" } })] }),

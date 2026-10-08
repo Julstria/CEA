@@ -3651,751 +3651,6 @@ const CAPS = [
  },
  {
   "n": "10",
-  "title": "Configura finalización y restricciones",
-  "sub": "",
-  "ruta": "Gestión y seguimiento",
-  "nivel": "Avanzado",
-  "duracion": "25 min",
-  "plataforma": "Moodle 4.x",
-  "objetivo": "Habilitar el rastreo de finalización, definir condiciones de finalización para recursos y actividades y crear rutas de aprendizaje mediante restricciones de acceso.",
-  "ia": false,
-  "file": "Capsula_10_Configura_finalizacion_y_restricciones",
-  "pasos": [
-   "Habilita el rastreo de finalización",
-   "Define condiciones de finalización por actividad",
-   "Agrega restricciones de acceso",
-   "Decide cómo se muestra lo restringido",
-   "Restringe secciones completas",
-   "Configura la finalización del curso (opcional)",
-   "Prueba la ruta"
-  ],
-  "secciones": [
-   {
-    "h": "Para empezar",
-    "blocks": [
-     {
-      "type": "p",
-      "runs": [
-       {
-        "t": "La finalización le muestra al estudiante qué ha completado y qué le falta; las restricciones permiten liberar contenidos según fechas, logros o grupos. Juntas, te ayudan a diseñar recorridos progresivos y a hacer seguimiento del avance.",
-        "b": false
-       }
-      ]
-     },
-     {
-      "type": "p",
-      "runs": [
-       {
-        "t": "Úsalas con criterio: una ruta muy restringida puede frustrar; una ruta bien pensada da orden y motivación.",
-        "b": false
-       }
-      ]
-     },
-     {
-      "type": "h3",
-      "text": "Antes de comenzar, asegúrate de…"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Tener definida la secuencia de aprendizaje de cada unidad.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Identificar qué elementos son obligatorios y cuáles son complementarios.",
-         "b": false
-        }
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "h": "Paso a paso",
-    "blocks": [
-     {
-      "type": "step",
-      "n": 1,
-      "title": "Habilita el rastreo de finalización"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Ve a Configuración del curso › Rastreo de finalización › Habilitar rastreo del grado de finalización: Sí.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Activa Mostrar condiciones de finalización de la actividad para que el estudiante vea los requisitos en la página del curso. Guarda.",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "step",
-      "n": 2,
-      "title": "Define condiciones de finalización por actividad"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Edita el recurso o la actividad › Condiciones de finalización.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Ninguna: no se rastrea.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Los estudiantes deben marcarla manualmente como completada: útil para lecturas.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Agregar requisitos: ver, recibir una calificación, recibir calificación aprobatoria, hacer una entrega, publicar mensajes, etc., según la actividad.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Establecer recordatorio en la Línea de tiempo: fecha esperada de finalización.",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "callout",
-      "kind": "tip",
-      "label": "Tip docente",
-      "paras": [
-       [
-        {
-         "t": "Para lecturas y videos, «Ver» es fácil de cumplir pero no garantiza estudio. Combínalo con una actividad breve de comprobación.",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "step",
-      "n": 3,
-      "title": "Agrega restricciones de acceso"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Edita el elemento (o la sección completa) › Restricciones de acceso › Añadir restricción.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Finalización de actividad: requiere completar otra actividad antes (por ejemplo, ver el video antes del cuestionario).",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Fecha: disponible desde/hasta una fecha.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Calificación: requiere una nota mínima en otra actividad.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Grupo o Agrupamiento: solo para ciertos grupos.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Perfil de usuario: según un campo del perfil.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Conjunto de restricciones: combina condiciones con «todas» (Y) o «cualquiera» (O).",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "step",
-      "n": 4,
-      "title": "Decide cómo se muestra lo restringido"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "El ícono del ojo junto a cada restricción define si el elemento se muestra en gris con la condición (ojo abierto) o si se oculta por completo (ojo tachado).",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Recomendación: muéstralo en gris; así el estudiante sabe qué viene y qué necesita para desbloquearlo.",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "step",
-      "n": 5,
-      "title": "Restringe secciones completas"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Edita la sección › Restricciones de acceso. Útil para liberar unidades por fechas o tras completar la unidad anterior.",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "step",
-      "n": 6,
-      "title": "Configura la finalización del curso (opcional)"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Ve a Más › Finalización del curso. Define qué actividades, fechas o calificaciones determinan que el curso está completo.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Agrega el bloque Estado de finalización del curso para que el estudiante vea su progreso.",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "step",
-      "n": 7,
-      "title": "Prueba la ruta"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Usa Cambiar rol a… › Estudiante, o mejor una cuenta de prueba, para verificar que las restricciones funcionen como esperas.",
-         "b": false
-        }
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "h": "Ejemplos de rutas",
-    "blocks": [
-     {
-      "type": "table",
-      "head": [
-       "Situación",
-       "Configuración sugerida"
-      ],
-      "rows": [
-       [
-        "Liberar cada semana",
-        "Restricción por fecha en cada sección"
-       ],
-       [
-        "Ver la explicación antes de evaluar",
-        "Cuestionario con restricción: finalización del video/página"
-       ],
-       [
-        "Recuperación para quienes no aprueban",
-        "Actividad con restricción: calificación < 3.0 en el parcial"
-       ],
-       [
-        "Material de profundización",
-        "Restricción: calificación ≥ 4.0 en la actividad previa"
-       ],
-       [
-        "Contenido para un grupo",
-        "Restricción por grupo"
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "h": "Buenas prácticas",
-    "blocks": [
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Explica la ruta en la descripción de la sección: «Para habilitar el cuestionario, primero revisa el video».",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Evita cadenas largas de dependencias: si una falla, bloquea todo el curso.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Revisa las restricciones al reutilizar un curso: las fechas y actividades de referencia pueden cambiar.",
-         "b": false
-        }
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "h": "Errores frecuentes y cómo resolverlos",
-    "blocks": [
-     {
-      "type": "table",
-      "head": [
-       "Si te pasa esto…",
-       "Haz esto"
-      ],
-      "rows": [
-       [
-        "Un estudiante no puede acceder",
-        "Revisa en su vista qué condición le falta; podría ser una actividad marcada sin finalizar."
-       ],
-       [
-        "No aparecen las casillas de finalización",
-        "El rastreo de finalización no está habilitado en la configuración del curso."
-       ],
-       [
-        "Restricción por calificación no funciona",
-        "La actividad de referencia debe tener calificación y, para «aprobar», una calificación para aprobar definida."
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "h": "Reto práctico",
-    "blocks": [
-     {
-      "type": "callout",
-      "kind": "reto",
-      "label": "Pon en práctica lo aprendido",
-      "paras": [
-       [
-        {
-         "t": "En una unidad, configura que el cuestionario solo se habilite después de que el estudiante vea la página de explicación, y que la sección siguiente se libere en una fecha determinada.",
-         "b": false
-        }
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "h": "Verifica tu avance",
-    "blocks": [
-     {
-      "type": "check",
-      "items": [
-       "Rastreo de finalización habilitado",
-       "Condiciones de finalización coherentes",
-       "Al menos una restricción configurada y visible",
-       "Ruta probada con rol de estudiante"
-      ]
-     }
-    ]
-   }
-  ]
- },
- {
-  "n": "11",
-  "title": "Haz seguimiento a tus estudiantes",
-  "sub": "",
-  "ruta": "Gestión y seguimiento",
-  "nivel": "Intermedio",
-  "duracion": "20 min",
-  "plataforma": "Moodle 4.x",
-  "objetivo": "Usar los informes y herramientas de Moodle para identificar el progreso, la participación y los riesgos de deserción de tus estudiantes y actuar de forma oportuna.",
-  "ia": false,
-  "file": "Capsula_11_Haz_seguimiento_a_tus_estudiantes",
-  "pasos": [
-   "Revisa la lista de participantes",
-   "Consulta el informe de finalización de actividades",
-   "Revisa la participación en el curso",
-   "Usa los registros y la actividad del curso",
-   "Revisa las entregas pendientes y las calificaciones",
-   "Organiza el acompañamiento"
-  ],
-  "secciones": [
-   {
-    "h": "Para empezar",
-    "blocks": [
-     {
-      "type": "p",
-      "runs": [
-       {
-        "t": "En la virtualidad, el silencio de un estudiante no siempre es visible. Moodle registra el acceso y la participación, y esos datos te permiten detectar a tiempo a quien se está quedando atrás y acompañarlo.",
-        "b": false
-       }
-      ]
-     },
-     {
-      "type": "p",
-      "runs": [
-       {
-        "t": "En esta cápsula conocerás los informes más útiles y cómo convertir los datos en acciones de acompañamiento.",
-        "b": false
-       }
-      ]
-     },
-     {
-      "type": "h3",
-      "text": "Antes de comenzar, asegúrate de…"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Tener habilitado el rastreo de finalización (cápsula 10).",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Definir una frecuencia de revisión (por ejemplo, cada lunes).",
-         "b": false
-        }
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "h": "Paso a paso",
-    "blocks": [
-     {
-      "type": "step",
-      "n": 1,
-      "title": "Revisa la lista de participantes"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Ve a Participantes. Verás el rol, los grupos y el Último acceso al curso de cada estudiante.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Usa el filtro Inactividad para ver quiénes no ingresan hace más de, por ejemplo, 7 días.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Selecciona estudiantes y usa Con los usuarios seleccionados… › Enviar un mensaje para contactarlos.",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "callout",
-      "kind": "tip",
-      "label": "Tip docente",
-      "paras": [
-       [
-        {
-         "t": "Un mensaje cercano y temprano («Notamos que no has ingresado esta semana, ¿cómo podemos ayudarte?») es más efectivo que un recordatorio al final del corte.",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "step",
-      "n": 2,
-      "title": "Consulta el informe de finalización de actividades"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "En Informes › Finalización de actividades verás una matriz con cada estudiante y cada actividad marcada como completada o no.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Puedes filtrar por grupo y descargar el informe en hoja de cálculo.",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "step",
-      "n": 3,
-      "title": "Revisa la participación en el curso"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Informes › Participación en el curso: selecciona una actividad, un periodo y el rol Estudiante. Verás quiénes la vieron o publicaron.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Desde el mismo informe puedes enviar un mensaje a quienes no han participado.",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "step",
-      "n": 4,
-      "title": "Usa los registros y la actividad del curso"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Informes › Registros: muestra acciones detalladas por usuario, fecha y actividad.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Informes › Actividad del curso: indica cuántas veces se ha visto cada recurso o actividad. Útil para saber qué materiales funcionan.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Registros activos: actividad de la última hora.",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "step",
-      "n": 5,
-      "title": "Revisa las entregas pendientes y las calificaciones"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "En cada tarea, filtra por No enviado para identificar a quién recordar.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "En Calificaciones › Informe del calificador identifica estudiantes con notas bajas recurrentes.",
-         "b": false
-        }
-       ]
-      ]
-     },
-     {
-      "type": "step",
-      "n": 6,
-      "title": "Organiza el acompañamiento"
-     },
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Clasifica a los estudiantes en: al día, en alerta (baja participación) y en riesgo (sin acceso o entregas pendientes).",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Define acciones por grupo: mensaje de reconocimiento, recordatorio personalizado, tutoría o remisión a los servicios de bienestar y acompañamiento de la universidad.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Registra tus acciones de seguimiento según el procedimiento de tu programa académico.",
-         "b": false
-        }
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "h": "Señales de alerta y acciones",
-    "blocks": [
-     {
-      "type": "table",
-      "head": [
-       "Señal",
-       "Acción sugerida"
-      ],
-      "rows": [
-       [
-        "Sin ingreso en más de 7 días",
-        "Mensaje personal y, si persiste, contacto por correo o con el programa"
-       ],
-       [
-        "Ingresa pero no entrega",
-        "Recordatorio con la fecha y oferta de asesoría"
-       ],
-       [
-        "Calificaciones bajas en dos actividades",
-        "Retroalimentación específica y actividad de refuerzo"
-       ],
-       [
-        "No participa en foros",
-        "Invitación directa a responder una pregunta concreta"
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "h": "Buenas prácticas",
-    "blocks": [
-     {
-      "type": "list",
-      "items": [
-       [
-        {
-         "t": "Revisa los informes con una frecuencia fija; el seguimiento constante evita sorpresas al final del periodo.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Reconoce también a quienes avanzan bien: el refuerzo positivo motiva.",
-         "b": false
-        }
-       ],
-       [
-        {
-         "t": "Trata los datos de los estudiantes con confidencialidad.",
-         "b": false
-        }
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "h": "Errores frecuentes y cómo resolverlos",
-    "blocks": [
-     {
-      "type": "table",
-      "head": [
-       "Si te pasa esto…",
-       "Haz esto"
-      ],
-      "rows": [
-       [
-        "El informe de finalización está vacío",
-        "No hay condiciones de finalización configuradas en las actividades."
-       ],
-       [
-        "No veo la opción Informes",
-        "Puede estar dentro de Más en la navegación secundaria, o tu rol no tiene permisos."
-       ],
-       [
-        "Registros con demasiada información",
-        "Filtra por actividad, fecha y participante."
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "h": "Reto práctico",
-    "blocks": [
-     {
-      "type": "callout",
-      "kind": "reto",
-      "label": "Pon en práctica lo aprendido",
-      "paras": [
-       [
-        {
-         "t": "Filtra a los estudiantes inactivos de tu curso en la última semana y envíales un mensaje personalizado. Luego descarga el informe de finalización de actividades.",
-         "b": false
-        }
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "h": "Verifica tu avance",
-    "blocks": [
-     {
-      "type": "check",
-      "items": [
-       "Revisé último acceso e inactividad",
-       "Consulté el informe de finalización",
-       "Identifiqué estudiantes en alerta y en riesgo",
-       "Envié mensajes de seguimiento"
-      ]
-     }
-    ]
-   }
-  ]
- },
- {
-  "n": "12",
   "title": "Lista de chequeo antes de abrir el curso",
   "sub": "",
   "ruta": "Gestión y seguimiento",
@@ -4404,7 +3659,7 @@ const CAPS = [
   "plataforma": "Moodle 4.x",
   "objetivo": "Verificar, con una lista de chequeo completa, que el aula virtual está lista para recibir a los estudiantes: configuración, estructura, contenidos, actividades, evaluación y comunicación.",
   "ia": false,
-  "file": "Capsula_12_Lista_de_chequeo_antes_de_abrir_el_curso",
+  "file": "Capsula_10_Lista_de_chequeo_antes_de_abrir_el_curso",
   "pasos": [
    "Revisa la configuración general",
    "Revisa la bienvenida y la comunicación",
@@ -4859,6 +4114,751 @@ const CAPS = [
   ]
  },
  {
+  "n": "11",
+  "title": "Haz seguimiento a tus estudiantes",
+  "sub": "",
+  "ruta": "Gestión y seguimiento",
+  "nivel": "Intermedio",
+  "duracion": "20 min",
+  "plataforma": "Moodle 4.x",
+  "objetivo": "Usar los informes y herramientas de Moodle para identificar el progreso, la participación y los riesgos de deserción de tus estudiantes y actuar de forma oportuna.",
+  "ia": false,
+  "file": "Capsula_11_Haz_seguimiento_a_tus_estudiantes",
+  "pasos": [
+   "Revisa la lista de participantes",
+   "Consulta el informe de finalización de actividades",
+   "Revisa la participación en el curso",
+   "Usa los registros y la actividad del curso",
+   "Revisa las entregas pendientes y las calificaciones",
+   "Organiza el acompañamiento"
+  ],
+  "secciones": [
+   {
+    "h": "Para empezar",
+    "blocks": [
+     {
+      "type": "p",
+      "runs": [
+       {
+        "t": "En la virtualidad, el silencio de un estudiante no siempre es visible. Moodle registra el acceso y la participación, y esos datos te permiten detectar a tiempo a quien se está quedando atrás y acompañarlo.",
+        "b": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "runs": [
+       {
+        "t": "En esta cápsula conocerás los informes más útiles y cómo convertir los datos en acciones de acompañamiento.",
+        "b": false
+       }
+      ]
+     },
+     {
+      "type": "h3",
+      "text": "Antes de comenzar, asegúrate de…"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Tener habilitado el rastreo de finalización (cápsula 12).",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Definir una frecuencia de revisión (por ejemplo, cada lunes).",
+         "b": false
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Paso a paso",
+    "blocks": [
+     {
+      "type": "step",
+      "n": 1,
+      "title": "Revisa la lista de participantes"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Ve a Participantes. Verás el rol, los grupos y el Último acceso al curso de cada estudiante.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Usa el filtro Inactividad para ver quiénes no ingresan hace más de, por ejemplo, 7 días.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Selecciona estudiantes y usa Con los usuarios seleccionados… › Enviar un mensaje para contactarlos.",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "callout",
+      "kind": "tip",
+      "label": "Tip docente",
+      "paras": [
+       [
+        {
+         "t": "Un mensaje cercano y temprano («Notamos que no has ingresado esta semana, ¿cómo podemos ayudarte?») es más efectivo que un recordatorio al final del corte.",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "step",
+      "n": 2,
+      "title": "Consulta el informe de finalización de actividades"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "En Informes › Finalización de actividades verás una matriz con cada estudiante y cada actividad marcada como completada o no.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Puedes filtrar por grupo y descargar el informe en hoja de cálculo.",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "step",
+      "n": 3,
+      "title": "Revisa la participación en el curso"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Informes › Participación en el curso: selecciona una actividad, un periodo y el rol Estudiante. Verás quiénes la vieron o publicaron.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Desde el mismo informe puedes enviar un mensaje a quienes no han participado.",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "step",
+      "n": 4,
+      "title": "Usa los registros y la actividad del curso"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Informes › Registros: muestra acciones detalladas por usuario, fecha y actividad.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Informes › Actividad del curso: indica cuántas veces se ha visto cada recurso o actividad. Útil para saber qué materiales funcionan.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Registros activos: actividad de la última hora.",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "step",
+      "n": 5,
+      "title": "Revisa las entregas pendientes y las calificaciones"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "En cada tarea, filtra por No enviado para identificar a quién recordar.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "En Calificaciones › Informe del calificador identifica estudiantes con notas bajas recurrentes.",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "step",
+      "n": 6,
+      "title": "Organiza el acompañamiento"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Clasifica a los estudiantes en: al día, en alerta (baja participación) y en riesgo (sin acceso o entregas pendientes).",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Define acciones por grupo: mensaje de reconocimiento, recordatorio personalizado, tutoría o remisión a los servicios de bienestar y acompañamiento de la universidad.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Registra tus acciones de seguimiento según el procedimiento de tu programa académico.",
+         "b": false
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Señales de alerta y acciones",
+    "blocks": [
+     {
+      "type": "table",
+      "head": [
+       "Señal",
+       "Acción sugerida"
+      ],
+      "rows": [
+       [
+        "Sin ingreso en más de 7 días",
+        "Mensaje personal y, si persiste, contacto por correo o con el programa"
+       ],
+       [
+        "Ingresa pero no entrega",
+        "Recordatorio con la fecha y oferta de asesoría"
+       ],
+       [
+        "Calificaciones bajas en dos actividades",
+        "Retroalimentación específica y actividad de refuerzo"
+       ],
+       [
+        "No participa en foros",
+        "Invitación directa a responder una pregunta concreta"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Buenas prácticas",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Revisa los informes con una frecuencia fija; el seguimiento constante evita sorpresas al final del periodo.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Reconoce también a quienes avanzan bien: el refuerzo positivo motiva.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Trata los datos de los estudiantes con confidencialidad.",
+         "b": false
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Errores frecuentes y cómo resolverlos",
+    "blocks": [
+     {
+      "type": "table",
+      "head": [
+       "Si te pasa esto…",
+       "Haz esto"
+      ],
+      "rows": [
+       [
+        "El informe de finalización está vacío",
+        "No hay condiciones de finalización configuradas en las actividades."
+       ],
+       [
+        "No veo la opción Informes",
+        "Puede estar dentro de Más en la navegación secundaria, o tu rol no tiene permisos."
+       ],
+       [
+        "Registros con demasiada información",
+        "Filtra por actividad, fecha y participante."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Reto práctico",
+    "blocks": [
+     {
+      "type": "callout",
+      "kind": "reto",
+      "label": "Pon en práctica lo aprendido",
+      "paras": [
+       [
+        {
+         "t": "Filtra a los estudiantes inactivos de tu curso en la última semana y envíales un mensaje personalizado. Luego descarga el informe de finalización de actividades.",
+         "b": false
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Verifica tu avance",
+    "blocks": [
+     {
+      "type": "check",
+      "items": [
+       "Revisé último acceso e inactividad",
+       "Consulté el informe de finalización",
+       "Identifiqué estudiantes en alerta y en riesgo",
+       "Envié mensajes de seguimiento"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": "12",
+  "title": "Configura finalización y restricciones",
+  "sub": "",
+  "ruta": "Gestión y seguimiento",
+  "nivel": "Avanzado",
+  "duracion": "25 min",
+  "plataforma": "Moodle 4.x",
+  "objetivo": "Habilitar el rastreo de finalización, definir condiciones de finalización para recursos y actividades y crear rutas de aprendizaje mediante restricciones de acceso.",
+  "ia": false,
+  "file": "Capsula_12_Configura_finalizacion_y_restricciones",
+  "pasos": [
+   "Habilita el rastreo de finalización",
+   "Define condiciones de finalización por actividad",
+   "Agrega restricciones de acceso",
+   "Decide cómo se muestra lo restringido",
+   "Restringe secciones completas",
+   "Configura la finalización del curso (opcional)",
+   "Prueba la ruta"
+  ],
+  "secciones": [
+   {
+    "h": "Para empezar",
+    "blocks": [
+     {
+      "type": "p",
+      "runs": [
+       {
+        "t": "La finalización le muestra al estudiante qué ha completado y qué le falta; las restricciones permiten liberar contenidos según fechas, logros o grupos. Juntas, te ayudan a diseñar recorridos progresivos y a hacer seguimiento del avance.",
+        "b": false
+       }
+      ]
+     },
+     {
+      "type": "p",
+      "runs": [
+       {
+        "t": "Úsalas con criterio: una ruta muy restringida puede frustrar; una ruta bien pensada da orden y motivación.",
+        "b": false
+       }
+      ]
+     },
+     {
+      "type": "h3",
+      "text": "Antes de comenzar, asegúrate de…"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Tener definida la secuencia de aprendizaje de cada unidad.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Identificar qué elementos son obligatorios y cuáles son complementarios.",
+         "b": false
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Paso a paso",
+    "blocks": [
+     {
+      "type": "step",
+      "n": 1,
+      "title": "Habilita el rastreo de finalización"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Ve a Configuración del curso › Rastreo de finalización › Habilitar rastreo del grado de finalización: Sí.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Activa Mostrar condiciones de finalización de la actividad para que el estudiante vea los requisitos en la página del curso. Guarda.",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "step",
+      "n": 2,
+      "title": "Define condiciones de finalización por actividad"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Edita el recurso o la actividad › Condiciones de finalización.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Ninguna: no se rastrea.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Los estudiantes deben marcarla manualmente como completada: útil para lecturas.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Agregar requisitos: ver, recibir una calificación, recibir calificación aprobatoria, hacer una entrega, publicar mensajes, etc., según la actividad.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Establecer recordatorio en la Línea de tiempo: fecha esperada de finalización.",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "callout",
+      "kind": "tip",
+      "label": "Tip docente",
+      "paras": [
+       [
+        {
+         "t": "Para lecturas y videos, «Ver» es fácil de cumplir pero no garantiza estudio. Combínalo con una actividad breve de comprobación.",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "step",
+      "n": 3,
+      "title": "Agrega restricciones de acceso"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Edita el elemento (o la sección completa) › Restricciones de acceso › Añadir restricción.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Finalización de actividad: requiere completar otra actividad antes (por ejemplo, ver el video antes del cuestionario).",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Fecha: disponible desde/hasta una fecha.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Calificación: requiere una nota mínima en otra actividad.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Grupo o Agrupamiento: solo para ciertos grupos.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Perfil de usuario: según un campo del perfil.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Conjunto de restricciones: combina condiciones con «todas» (Y) o «cualquiera» (O).",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "step",
+      "n": 4,
+      "title": "Decide cómo se muestra lo restringido"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "El ícono del ojo junto a cada restricción define si el elemento se muestra en gris con la condición (ojo abierto) o si se oculta por completo (ojo tachado).",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Recomendación: muéstralo en gris; así el estudiante sabe qué viene y qué necesita para desbloquearlo.",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "step",
+      "n": 5,
+      "title": "Restringe secciones completas"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Edita la sección › Restricciones de acceso. Útil para liberar unidades por fechas o tras completar la unidad anterior.",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "step",
+      "n": 6,
+      "title": "Configura la finalización del curso (opcional)"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Ve a Más › Finalización del curso. Define qué actividades, fechas o calificaciones determinan que el curso está completo.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Agrega el bloque Estado de finalización del curso para que el estudiante vea su progreso.",
+         "b": false
+        }
+       ]
+      ]
+     },
+     {
+      "type": "step",
+      "n": 7,
+      "title": "Prueba la ruta"
+     },
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Usa Cambiar rol a… › Estudiante, o mejor una cuenta de prueba, para verificar que las restricciones funcionen como esperas.",
+         "b": false
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Ejemplos de rutas",
+    "blocks": [
+     {
+      "type": "table",
+      "head": [
+       "Situación",
+       "Configuración sugerida"
+      ],
+      "rows": [
+       [
+        "Liberar cada semana",
+        "Restricción por fecha en cada sección"
+       ],
+       [
+        "Ver la explicación antes de evaluar",
+        "Cuestionario con restricción: finalización del video/página"
+       ],
+       [
+        "Recuperación para quienes no aprueban",
+        "Actividad con restricción: calificación < 3.0 en el parcial"
+       ],
+       [
+        "Material de profundización",
+        "Restricción: calificación ≥ 4.0 en la actividad previa"
+       ],
+       [
+        "Contenido para un grupo",
+        "Restricción por grupo"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Buenas prácticas",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       [
+        {
+         "t": "Explica la ruta en la descripción de la sección: «Para habilitar el cuestionario, primero revisa el video».",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Evita cadenas largas de dependencias: si una falla, bloquea todo el curso.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "Revisa las restricciones al reutilizar un curso: las fechas y actividades de referencia pueden cambiar.",
+         "b": false
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Errores frecuentes y cómo resolverlos",
+    "blocks": [
+     {
+      "type": "table",
+      "head": [
+       "Si te pasa esto…",
+       "Haz esto"
+      ],
+      "rows": [
+       [
+        "Un estudiante no puede acceder",
+        "Revisa en su vista qué condición le falta; podría ser una actividad marcada sin finalizar."
+       ],
+       [
+        "No aparecen las casillas de finalización",
+        "El rastreo de finalización no está habilitado en la configuración del curso."
+       ],
+       [
+        "Restricción por calificación no funciona",
+        "La actividad de referencia debe tener calificación y, para «aprobar», una calificación para aprobar definida."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Reto práctico",
+    "blocks": [
+     {
+      "type": "callout",
+      "kind": "reto",
+      "label": "Pon en práctica lo aprendido",
+      "paras": [
+       [
+        {
+         "t": "En una unidad, configura que el cuestionario solo se habilite después de que el estudiante vea la página de explicación, y que la sección siguiente se libere en una fecha determinada.",
+         "b": false
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Verifica tu avance",
+    "blocks": [
+     {
+      "type": "check",
+      "items": [
+       "Rastreo de finalización habilitado",
+       "Condiciones de finalización coherentes",
+       "Al menos una restricción configurada y visible",
+       "Ruta probada con rol de estudiante"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
   "n": "13",
   "title": "De una idea a una actividad",
   "sub": "Convertir un objetivo en propuesta de actividad",
@@ -5064,7 +5064,7 @@ const CAPS = [
        ],
        [
         {
-         "t": "Configura fechas, calificación y finalización según las cápsulas 05 a 10.",
+         "t": "Configura fechas, calificación y finalización según las cápsulas 05 a 09 y la 12.",
          "b": false
         }
        ]
