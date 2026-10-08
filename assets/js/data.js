@@ -8,7 +8,7 @@ const CAPS = [
   "ruta": "Fundamentos del aula virtual",
   "nivel": "Básico",
   "duracion": "15 min",
-  "plataforma": "Moodle 4.x",
+  "plataforma": "Moodle 4.5",
   "objetivo": "Reconocer los espacios principales de Moodle (Área personal, Mis cursos, página del curso y menú de usuario) para moverte con seguridad dentro de tu aula virtual desde el primer día.",
   "ia": false,
   "file": "Capsula_01_Conoce_tu_aula_virtual",
@@ -38,7 +38,7 @@ const CAPS = [
       "type": "p",
       "runs": [
        {
-        "t": "En esta cápsula harás un recorrido guiado por la interfaz de Moodle 4.x: desde el ingreso a la plataforma hasta los menús internos de un curso.",
+        "t": "En esta cápsula harás un recorrido guiado por la interfaz de Moodle 4.5: desde el ingreso a la plataforma hasta los menús internos de un curso.",
         "b": false
        }
       ]
@@ -421,7 +421,7 @@ const CAPS = [
   "ruta": "Fundamentos del aula virtual",
   "nivel": "Básico",
   "duracion": "20 min",
-  "plataforma": "Moodle 4.x",
+  "plataforma": "Moodle 4.5",
   "objetivo": "Activar el modo de edición y organizar la estructura del curso en secciones claras, con nombres, descripciones y un orden lógico que facilite el recorrido del estudiante.",
   "ia": false,
   "file": "Capsula_02_Activa_la_edicion_y_organiza_tu_curso",
@@ -539,7 +539,7 @@ const CAPS = [
        ],
        [
         {
-         "t": "En Formato de curso elige Formato de temas (por unidades) o Formato semanal (por semanas con fechas automáticas). En versiones recientes este formato puede llamarse «Formato de secciones personalizadas».",
+         "t": "En Formato de curso elige Secciones personalizadas (por unidades o temas) o Secciones semanales (por semanas, con fechas automáticas).",
          "b": false
         }
        ],
@@ -664,7 +664,7 @@ const CAPS = [
       "paras": [
        [
         {
-         "t": "Usa la edición masiva (botón «Edición masiva», disponible desde Moodle 4.2) para ocultar, mover o eliminar varios elementos a la vez.",
+         "t": "Usa la edición masiva (botón «Acciones masivas», disponible desde Moodle 4.2) para ocultar, mover o eliminar varios elementos a la vez.",
          "b": false
         }
        ]
@@ -815,7 +815,7 @@ const CAPS = [
   "ruta": "Fundamentos del aula virtual",
   "nivel": "Básico",
   "duracion": "20 min",
-  "plataforma": "Moodle 4.x",
+  "plataforma": "Moodle 4.5",
   "objetivo": "Publicar materiales de estudio en el aula virtual usando los recursos Archivo, Carpeta, Página, URL y Área de texto y medios, con una presentación clara y accesible.",
   "ia": false,
   "file": "Capsula_03_Agrega_archivos_paginas_y_enlaces",
@@ -914,7 +914,7 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "Haz clic en Añadir una actividad o un recurso › pestaña Recursos › Archivo.",
+         "t": "Haz clic en Añadir contenido › Actividad o recurso › pestaña Recursos › Archivo.",
          "b": false
         }
        ],
@@ -973,7 +973,7 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "Usa Añadir una actividad o un recurso › Carpeta cuando tengas varios archivos relacionados (por ejemplo, todas las lecturas complementarias de una unidad).",
+         "t": "Usa Añadir contenido › Actividad o recurso › Carpeta cuando tengas varios archivos relacionados (por ejemplo, todas las lecturas complementarias de una unidad).",
          "b": false
         }
        ],
@@ -995,7 +995,7 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "Selecciona Añadir una actividad o un recurso › Página. Escribe el nombre y, en Contenido de la página, redacta la explicación usando el editor.",
+         "t": "Selecciona Añadir contenido › Actividad o recurso › Página. Escribe el nombre y, en Contenido de la página, redacta la explicación usando el editor.",
          "b": false
         }
        ],
@@ -1023,7 +1023,7 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "Selecciona Añadir una actividad o un recurso › URL. Pega la dirección completa (con https://) en URL externa.",
+         "t": "Selecciona Añadir contenido › Actividad o recurso › URL. Pega la dirección completa (con https://) en URL externa.",
          "b": false
         }
        ],
@@ -1235,7 +1235,7 @@ const CAPS = [
   "ruta": "Fundamentos del aula virtual",
   "nivel": "Básico",
   "duracion": "15 min",
-  "plataforma": "Moodle 4.x",
+  "plataforma": "Moodle 4.5",
   "objetivo": "Distinguir entre recursos (material para consultar) y actividades (espacios para participar y ser evaluado) y seleccionar la herramienta de Moodle más adecuada según la intención pedagógica.",
   "ia": false,
   "file": "Capsula_04_Diferencia_entre_recursos_y_actividades",
@@ -1304,7 +1304,7 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "Activa el Modo de edición y haz clic en Añadir una actividad o un recurso en cualquier sección.",
+         "t": "Activa el Modo de edición y, al final de cualquier sección, haz clic en Añadir contenido › Actividad o recurso. Se abre el selector «Añadir una actividad o un recurso».",
          "b": false
         }
        ],
@@ -1580,7 +1580,7 @@ const CAPS = [
   "ruta": "Actividades y evaluación",
   "nivel": "Intermedio",
   "duracion": "25 min",
-  "plataforma": "Moodle 4.x",
+  "plataforma": "Moodle 4.5",
   "objetivo": "Crear una actividad Tarea con instrucciones claras, fechas, tipo de entrega, calificación y retroalimentación correctamente configuradas.",
   "ia": false,
   "file": "Capsula_05_Crea_y_configura_una_tarea",
@@ -1612,7 +1612,7 @@ const CAPS = [
       "type": "p",
       "runs": [
        {
-        "t": "En esta cápsula recorrerás, paso a paso, la configuración de una tarea en Moodle 4.x.",
+        "t": "En esta cápsula recorrerás, paso a paso, la configuración de una tarea en Moodle 4.5.",
         "b": false
        }
       ]
@@ -1659,7 +1659,7 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "Activa el Modo de edición, ve a la sección deseada y haz clic en Añadir una actividad o un recurso › Tarea.",
+         "t": "Activa el Modo de edición, ve a la sección deseada y haz clic en Añadir contenido › Actividad o recurso › Tarea.",
          "b": false
         }
        ]
@@ -1886,7 +1886,7 @@ const CAPS = [
        ],
        [
         {
-         "t": "Opcional: Ocultar identidad de estudiantes (calificación anónima) o Usar flujo de trabajo de calificación para publicar todas las notas al mismo tiempo.",
+         "t": "Opcional: Envíos anónimos (calificación anónima) o Usar workflow (flujo de trabajo) de calificaciones para publicar todas las notas al mismo tiempo.",
          "b": false
         }
        ]
@@ -1902,7 +1902,7 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "En Condiciones de finalización, elige por ejemplo Hacer una entrega o Recibir una calificación.",
+         "t": "En Condiciones de finalización de actividad, elige por ejemplo Hacer una entrega o Recibir una calificación.",
          "b": false
         }
        ],
@@ -2018,7 +2018,7 @@ const CAPS = [
   "ruta": "Actividades y evaluación",
   "nivel": "Intermedio",
   "duracion": "20 min",
-  "plataforma": "Moodle 4.x",
+  "plataforma": "Moodle 4.5",
   "objetivo": "Configurar un foro académico que promueva la discusión argumentada, con una consigna clara, el tipo de foro adecuado, normas de participación y, si se requiere, calificación.",
   "ia": false,
   "file": "Capsula_06_Crea_un_foro_academico",
@@ -2096,7 +2096,7 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "Con el Modo de edición activo, haz clic en Añadir una actividad o un recurso › Foro.",
+         "t": "Con el Modo de edición activo, haz clic en Añadir contenido › Actividad o recurso › Foro.",
          "b": false
         }
        ]
@@ -2425,7 +2425,7 @@ const CAPS = [
   "ruta": "Actividades y evaluación",
   "nivel": "Intermedio",
   "duracion": "25 min",
-  "plataforma": "Moodle 4.x",
+  "plataforma": "Moodle 4.5",
   "objetivo": "Crear y configurar un cuestionario en Moodle definiendo temporalización, intentos, comportamiento de las preguntas y opciones de revisión, y agregar preguntas desde el editor o el banco de preguntas.",
   "ia": false,
   "file": "Capsula_07_Crea_un_cuestionario",
@@ -2497,7 +2497,7 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "Activa el Modo de edición › Añadir una actividad o un recurso › Cuestionario. Escribe el nombre y una descripción con las instrucciones (número de preguntas, tiempo, intentos y temas evaluados).",
+         "t": "Activa el Modo de edición › Añadir contenido › Actividad o recurso › Cuestionario. Escribe el nombre y una descripción con las instrucciones (número de preguntas, tiempo, intentos y temas evaluados).",
          "b": false
         }
        ]
@@ -2525,7 +2525,7 @@ const CAPS = [
        ],
        [
         {
-         "t": "Cuando el tiempo ha terminado: elige «Los intentos abiertos se envían automáticamente» para evitar intentos sin enviar.",
+         "t": "Cuando el tiempo ha terminado: elige «El envío se realiza automáticamente» para evitar intentos sin enviar.",
          "b": false
         }
        ]
@@ -2638,7 +2638,7 @@ const CAPS = [
        ],
        [
         {
-         "t": "Condiciones de finalización: recibir calificación, aprobar o agotar todos los intentos. Guarda los cambios.",
+         "t": "Condiciones de finalización de actividad: recibir calificación, aprobar o agotar todos los intentos. Guarda los cambios.",
          "b": false
         }
        ]
@@ -2853,7 +2853,7 @@ const CAPS = [
   "ruta": "Actividades y evaluación",
   "nivel": "Avanzado",
   "duracion": "25 min",
-  "plataforma": "Moodle 4.x",
+  "plataforma": "Moodle 4.5",
   "objetivo": "Organizar, crear, importar y reutilizar preguntas en el banco de preguntas de Moodle mediante categorías, etiquetas y formatos de importación como GIFT o Aiken.",
   "ia": false,
   "file": "Capsula_08_Gestiona_el_banco_de_preguntas",
@@ -3245,7 +3245,7 @@ const CAPS = [
   "ruta": "Actividades y evaluación",
   "nivel": "Intermedio",
   "duracion": "25 min",
-  "plataforma": "Moodle 4.x",
+  "plataforma": "Moodle 4.5",
   "objetivo": "Calificar entregas, participaciones e intentos en Moodle, ofrecer retroalimentación útil para el aprendizaje y gestionar el libro de calificaciones del curso.",
   "ia": false,
   "file": "Capsula_09_Califica_y_retroalimenta_actividades",
@@ -3375,7 +3375,7 @@ const CAPS = [
        ],
        [
         {
-         "t": "Flujo de trabajo de calificación: califica en privado y libera todas las notas al mismo tiempo (estado «Liberado»).",
+         "t": "Usar workflow (flujo de trabajo) de calificaciones: califica en privado y libera todas las notas al mismo tiempo (estado «Publicada»).",
          "b": false
         }
        ]
@@ -3475,7 +3475,7 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "Ve a la pestaña Calificaciones › Configuración de calificaciones.",
+         "t": "Ve a la pestaña Calificaciones › Configuración Calificaciones.",
          "b": false
         }
        ],
@@ -3601,7 +3601,7 @@ const CAPS = [
       "rows": [
        [
         "El estudiante no ve su nota",
-        "Puede estar oculta en el libro de calificaciones o el flujo de trabajo no está en «Liberado»."
+        "Puede estar oculta en el libro de calificaciones o el flujo de trabajo no está en «Publicada»."
        ],
        [
         "La nota final no coincide",
@@ -3656,7 +3656,7 @@ const CAPS = [
   "ruta": "Gestión y seguimiento",
   "nivel": "Básico",
   "duracion": "20 min",
-  "plataforma": "Moodle 4.x",
+  "plataforma": "Moodle 4.5",
   "objetivo": "Verificar, con una lista de chequeo completa, que el aula virtual está lista para recibir a los estudiantes: configuración, estructura, contenidos, actividades, evaluación y comunicación.",
   "ia": false,
   "file": "Capsula_10_Lista_de_chequeo_antes_de_abrir_el_curso",
@@ -4120,7 +4120,7 @@ const CAPS = [
   "ruta": "Gestión y seguimiento",
   "nivel": "Intermedio",
   "duracion": "20 min",
-  "plataforma": "Moodle 4.x",
+  "plataforma": "Moodle 4.5",
   "objetivo": "Usar los informes y herramientas de Moodle para identificar el progreso, la participación y los riesgos de deserción de tus estudiantes y actuar de forma oportuna.",
   "ia": false,
   "file": "Capsula_11_Haz_seguimiento_a_tus_estudiantes",
@@ -4470,7 +4470,7 @@ const CAPS = [
   "ruta": "Gestión y seguimiento",
   "nivel": "Avanzado",
   "duracion": "25 min",
-  "plataforma": "Moodle 4.x",
+  "plataforma": "Moodle 4.5",
   "objetivo": "Habilitar el rastreo de finalización, definir condiciones de finalización para recursos y actividades y crear rutas de aprendizaje mediante restricciones de acceso.",
   "ia": false,
   "file": "Capsula_12_Configura_finalizacion_y_restricciones",
@@ -4541,7 +4541,7 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "Ve a Configuración del curso › Rastreo de finalización › Habilitar rastreo del grado de finalización: Sí.",
+         "t": "Ve a Configuración del curso › Rastreo de finalización › Habilitar seguimiento del grado de finalización: Sí.",
          "b": false
         }
        ],
@@ -4563,7 +4563,7 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "Edita el recurso o la actividad › Condiciones de finalización.",
+         "t": "Edita el recurso o la actividad › Condiciones de finalización de actividad.",
          "b": false
         }
        ],
