@@ -8,7 +8,7 @@ Cada cápsula tiene:
 - un espacio para el video (YouTube o Vimeo),
 - su guía descargable en PDF.
 
-La página permite filtrar por ruta formativa, nivel, tema y estado (pendientes, vistas, con video), copiar los prompts de las cápsulas de IA con un clic y marcar las cápsulas vistas. El avance se guarda en el navegador de cada docente.
+La página permite filtrar por ruta formativa, nivel, tema y estado (pendientes o vistas), copiar los prompts de las cápsulas de IA con un clic y marcar las cápsulas vistas. El avance se guarda en el navegador de cada docente.
 
 ## Estructura del repositorio
 
