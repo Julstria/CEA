@@ -38,7 +38,15 @@ const CAPS = [
       "type": "p",
       "runs": [
        {
-        "t": "En esta cápsula harás un recorrido guiado por la interfaz de Moodle 4.5: desde el ingreso a la plataforma hasta los menús internos de un curso.",
+        "t": "En esta cápsula harás un recorrido guiado por ",
+        "b": false
+       },
+       {
+        "t": "eCampus",
+        "b": true
+       },
+       {
+        "t": ", la plataforma Moodle 4.5 de la Universidad: desde el ingreso hasta los menús internos de un curso.",
         "b": false
        }
       ]
@@ -85,7 +93,45 @@ const CAPS = [
       "items": [
        [
         {
-         "t": "Abre el enlace del aula virtual institucional e inicia sesión con tus credenciales.",
+         "t": "Abre ",
+         "b": false
+        },
+        {
+         "t": "ecampus.usbcali.edu.co",
+         "b": true
+        },
+        {
+         "t": " e inicia sesión con tu usuario y contraseña institucionales.",
+         "b": false
+        }
+       ],
+       [
+        {
+         "t": "En la barra superior verás ",
+         "b": false
+        },
+        {
+         "t": "Área personal",
+         "b": true
+        },
+        {
+         "t": " y ",
+         "b": false
+        },
+        {
+         "t": "Mis cursos",
+         "b": true
+        },
+        {
+         "t": ", y también menús propios de la USB: ",
+         "b": false
+        },
+        {
+         "t": "Apoyo al docente",
+         "b": true
+        },
+        {
+         "t": ", Apoyo al estudiante, Recursos Educativos y Soporte.",
          "b": false
         }
        ],
@@ -303,6 +349,11 @@ const CAPS = [
         "Entrar a cualquiera de tus cursos"
        ],
        [
+        "Apoyo al docente, Apoyo al estudiante, Recursos Educativos y Soporte",
+        "Barra superior",
+        "Acceder a los apoyos, recursos y canales de soporte de la Universidad"
+       ],
+       [
         "Navegación secundaria",
         "Bajo el nombre del curso",
         "Configurar, ver participantes, calificaciones e informes"
@@ -404,7 +455,7 @@ const CAPS = [
      {
       "type": "check",
       "items": [
-       "Ingresé a la plataforma y ubiqué mi curso",
+       "Ingresé a eCampus y ubiqué mi curso",
        "Reconozco la navegación secundaria, el índice y el cajón de bloques",
        "Actualicé mi perfil",
        "Revisé el curso con el rol de estudiante"
